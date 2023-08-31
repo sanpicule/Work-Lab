@@ -6,7 +6,7 @@ import Breadcrumb from './Breadcrumb'
 const NavBar = () => {
   return (
     <nav className="fixed z-10 bg-gray-700 w-full flex flex-wrap items-center justify-between py-3  text-white focus:text-gray-700 navbar navbar-expand-lg navbar-light w-screen">
-      <div className="container-fluid w-full flex items-center justify-between px-10">
+      <div className="container-fluid w-full flex items-center justify-between px-4">
         <div
           className="bg-grey-light rounded-md w-full"
           aria-label="breadcrumb"
@@ -18,18 +18,19 @@ const NavBar = () => {
           <Breadcrumb />
         </div>
         <ul className='flex'>
-          <li
-            className='ml-10 cursor-pointer text-base md:text-lg lg:text-xl xl:text-2xl'
+          <Link
+            href='/home'
+            className='container ml-2 cursor-pointer text-base md:text-lg lg:text-xl xl:text-2xl'
           >
-            Home
-          </li>
+            Portfolio
+          </Link>
           <li
-            className='ml-10 cursor-pointer text-base md:text-lg lg:text-xl xl:text-2xl'
+            className='ml-2 cursor-pointer text-base md:text-lg lg:text-xl xl:text-2xl'
           >
             Articles
           </li>
           <li
-            className='ml-10 cursor-pointer text-base md:text-lg lg:text-xl xl:text-2xl'
+            className='ml-2 cursor-pointer text-base md:text-lg lg:text-xl xl:text-2xl'
           >
             Contact
           </li>

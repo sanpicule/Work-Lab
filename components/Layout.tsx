@@ -8,7 +8,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="relative overflow-hidden">
       <div className="flex flex-col items-center max-w-6xl w-full mx-auto">
         <NavBar />
-        <main className='w-full pt-12 pb-12 px-4'>{children}</main>
+        <main className='w-full pt-12 pb-12 px-4 '>{children}</main>
         <Footer />
       </div>
     </div>
