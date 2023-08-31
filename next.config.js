@@ -10,7 +10,14 @@ const nextConfig = {
       'd1tlzifd8jdoy4.cloudfront.net',
       'rightcode.co.jp',
       'buddy.works',
-      'ingg.dev'
+      'ingg.dev',
+      'www.python.jp',
+      'develop.blue',
+      'prtimes.jp',
+      'd2ms8rpfqc4h24.cloudfront.net',
+      'www.memotansu.jp',
+      'jwt.io',
+      'res.cloudinary.com'
     ], // 画像を提供するホスト名をここに追加
   },
 }
