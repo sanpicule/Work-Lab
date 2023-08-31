@@ -8,6 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        'base': '0.8rem',    // デフォルトのフォントサイズ
+        'lg': '1.125rem',   // 中サイズのフォントサイズ
+        'xl': '1.25rem',    // 大サイズのフォントサイズ
+        '2xl': '1.5rem',    // 超大サイズのフォントサイズ
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
