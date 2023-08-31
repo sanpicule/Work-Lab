@@ -7,13 +7,13 @@ import { getCover, getDate, getMultiSelect, getText } from "@/utils/property";
 const Card: FC<CardProps> = ({ page }) => {
   return (
     <Link href={`/articles/${getText(page.properties.slug.rich_text)}`}>
-      <h5 className="flex justify-center ">
+      <div className="flex justify-center transition-opacity hover:opacity-50">
         <div className="max-w-sm rounded overflow-hidden shadow-lg w-full my-4 md:my-0 content-between grid">
           {/* image */}
           <div>
             {" "}
             <Image
-              className="w-full static w-full h-auto"
+              className="w-full static w-full h-40"
               src={getCover(page.cover)}
               alt=""
               objectFit="cover"
@@ -41,7 +41,7 @@ const Card: FC<CardProps> = ({ page }) => {
             ))}
           </div>
         </div>
-      </h5>
+      </div>
     </Link>
   );
 };
