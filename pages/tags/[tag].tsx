@@ -1,14 +1,9 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import Card from "../../components/Card";
 import Layout from "../../components/Layout";
-import { siteConfig } from "../../site.config";
-import { IndexProps, Params, TagProps } from "../../types/types";
+import { Params, TagProps } from "../../types/types";
 import { fetchPages } from "../../utils/notion";
 import { getMultiSelect } from "../../utils/property";
-import { sampleCards } from "../../utils/sample";
  
 export const getStaticPaths: GetStaticPaths = async () => {
   const { results }: { results: Record<string, any>[] } = await fetchPages({});
