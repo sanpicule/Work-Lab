@@ -8,7 +8,7 @@ const Card: FC<CardProps> = ({ page }) => {
   return (
     <Link href={`/articles/${getText(page.properties.slug.rich_text)}`}>
       <div className="flex justify-center">
-        <div className="transition max-w-sm rounded overflow-hidden shadow-2xl w-full my-4 md:my-0 content-between grid hover:scale-90 hover:shadow-none">
+        <div className="transition max-w-sm rounded overflow-hidden shadow-2xl w-full my-4 md:my-0 content-between grid md:hover:scale-90 md:hover:shadow-none">
           {/* image */}
           <div>
             {" "}
