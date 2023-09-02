@@ -20,6 +20,26 @@ export  type BlockProps = {
   block: BlockType
 }
 
+export type NavMenuItemProps = {
+  pathName: string,
+  menuName: string
+}
+
+export type MobileNavItemProps = {
+  pathName: string,
+  menuName: string,
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export type SetOpenTypes = {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export type PortfolioCardProps = {
+  url: string,
+  title: string
+}
+
 export type TagProps = IndexProps & { tag: string }
  
 export type CardProps = { page: PageType };

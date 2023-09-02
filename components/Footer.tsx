@@ -72,7 +72,7 @@ const Footer = () => {
         {/* copyright */}
         <div className="text-center p-4 ">
           <Link href="/">
-            <h5 className="text-whitehite">©{siteConfig.title}</h5>
+            <p className="text-white text-xs">©{siteConfig.title}</p>
           </Link>
         </div>
       </div>

@@ -17,9 +17,10 @@ const nextConfig = {
       'd2ms8rpfqc4h24.cloudfront.net',
       'www.memotansu.jp',
       'jwt.io',
-      'res.cloudinary.com'
-    ], // 画像を提供するホスト名をここに追加
-  },
+      'res.cloudinary.com',
+      'a0.awsstatic.com'
+    ]
+  }
 }
 
 module.exports = nextConfig
