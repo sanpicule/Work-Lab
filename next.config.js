@@ -3,7 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
-      'images.unsplash.com',
       'www.notion.so',
       's3.us-west-2.amazonaws.com',
       'firebase.google.com',
@@ -18,7 +17,10 @@ const nextConfig = {
       'www.memotansu.jp',
       'jwt.io',
       'res.cloudinary.com',
-      'a0.awsstatic.com'
+      'a0.awsstatic.com',
+      'images.pexels.com',
+      'upload.wikimedia.org',
+      'cdn.icon-icons.com'
     ]
   }
 }

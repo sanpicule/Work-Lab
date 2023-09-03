@@ -9,7 +9,7 @@ const ArticleMeta: React.FC<ArticleMetaProps> = ({ page }) => {
     <>
       {/* page cover */}
       <Image
-        className="w-full max-w-screen-lg rounded-lg aspect-video my-4"
+        className="w-full max-w-screen-lg rounded-lg aspect-video my-4 mx-auto"
         src={getCover(page.cover)}
         alt=""
         objectFit="cover"

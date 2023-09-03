@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout'
 import React from 'react'
 
-const About: React.FC = () => {
+const Contact: React.FC = () => {
   return (
     <Layout>
       <h1>Coming Soon...</h1>
@@ -9,4 +9,4 @@ const About: React.FC = () => {
   )
 }
 
-export default About
+export default Contact
