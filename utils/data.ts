@@ -1,3 +1,5 @@
+import { siteConfig } from "@/site.config"
+
 export const portfolioList = [
   {
     id: 1,
@@ -14,27 +16,42 @@ export const portfolioList = [
     title: 'SPLink',
     url: 'https://sp-link-sannsi4444-gmailcom.vercel.app/'
   },
+  {
+    id: 4,
+    title: 'SPLink',
+    url: 'https://sp-link-sannsi4444-gmailcom.vercel.app/'
+  },
+  {
+    id: 5,
+    title: 'SPLink',
+    url: 'https://sp-link-sannsi4444-gmailcom.vercel.app/'
+  },
+  {
+    id: 6,
+    title: 'SPLink',
+    url: 'https://sp-link-sannsi4444-gmailcom.vercel.app/'
+  },
 ]
 
 export const navMenuList = [
   {
     id: 1,
-    menuName: 'Home',
+    menuName: `${siteConfig.home}`,
     pathName: '/'
   },
   {
     id: 2,
-    menuName: 'Portfolio',
+    menuName: `${siteConfig.portfolio}`,
     pathName: '/portfolio'
   },
   {
     id: 3,
-    menuName: 'Articles',
+    menuName: `${siteConfig.articleList}`,
     pathName: '/articles'
   },
   {
     id: 4,
-    menuName: 'About',
-    pathName: '/about'
+    menuName: `${siteConfig.contact}`,
+    pathName: '/contact'
   },
 ]

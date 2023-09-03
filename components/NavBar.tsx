@@ -14,7 +14,7 @@ const NavBar = () => {
     <nav className="fixed z-10 bg-gray-700 w-full flex h-20 flex-wrap items-center justify-between py-3  text-white focus:text-gray-700 navbar navbar-expand-lg navbar-light">
       <div className="container-fluid w-full flex items-center justify-between px-6">
         <div
-          className="bg-grey-light rounded-md w-full"
+          className="bg-grey-light rounded-md w-1/3"
           aria-label="breadcrumb"
         >
           <Link href="/">
@@ -25,7 +25,7 @@ const NavBar = () => {
             </h5>
           </Link>
         </div>
-        <ul className='flex items-center justify-center'>
+        <ul className='flex items-center justify-end w-2/3'>
           {navMenuList.map((navMenu) => (
             <NavNameItem
               key={navMenu.id}
