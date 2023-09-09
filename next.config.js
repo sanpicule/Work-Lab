@@ -20,7 +20,9 @@ const nextConfig = {
       'a0.awsstatic.com',
       'images.pexels.com',
       'upload.wikimedia.org',
-      'cdn.icon-icons.com'
+      'cdn.icon-icons.com',
+      'www.notion.so',
+      'prod-files-secure.s3.us-west-2.amazonaws.com'
     ]
   }
 }
