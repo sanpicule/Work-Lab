@@ -11,8 +11,11 @@ h2 {
 h3 {
   @apply font-semibold leading-tight text-2xl mt-0 mb-2;
 }
+h4 {
+  @apply leading-tight text-lg text-slate-700;
+}
 p {
-  @apply font-light leading-relaxed text-base text-gray-800 mt-0 mb-4;
+  @apply font-light leading-relaxed text-base text-slate-700;
 }
 main {
   @apply min-h-screen flex flex-col justify-center items-center;

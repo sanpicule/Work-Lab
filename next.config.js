@@ -22,7 +22,8 @@ const nextConfig = {
       'upload.wikimedia.org',
       'cdn.icon-icons.com',
       'www.notion.so',
-      'prod-files-secure.s3.us-west-2.amazonaws.com'
+      'prod-files-secure.s3.us-west-2.amazonaws.com',
+      'images.unsplash.com'
     ]
   }
 }

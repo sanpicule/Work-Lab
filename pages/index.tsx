@@ -1,56 +1,81 @@
+import type { GetStaticProps, NextPage } from "next";
 import Layout from '@/components/Layout'
-import PortfolioCard from '@/components/PortfolioCard'
 import { siteConfig } from '@/site.config'
-import { portfolioList } from '@/utils/data'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { fetchPages } from "@/utils/notion";
+import { IndexProps } from "@/types/types";
+import Card from "@/components/Card";
 
-const TopPage = () => {
-  const slicedPortfolioList = portfolioList.slice(0, 4)
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { results } = await fetchPages({});
+  return {
+    props: {
+      pages: results ? results : [],
+    },
+    revalidate: 10,
+  };
+};
+
+const TopPage: NextPage<IndexProps> = ({pages}) => {
   return (
     <Layout>
-      <div className='w-full h-auto flex flex-col items-center justify-center pt-20'>
-        <h1>{siteConfig.profile}</h1>
-        <div className='md:flex w-full items-start justify-around gap-20 md:mt-20'>
-          <div>
+      <Image
+        className="w-full max-w-screen-lg mt-12 mx-auto"
+        src={'https://images.unsplash.com/photo-1719639445414-03e9eed8587f?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
+        alt=""
+        objectFit="cover"
+        width={640}
+        height={360}
+        quality={50}
+      />
+      <div className='w-full h-auto flex flex-col justify-center pt-24 md:pt-60'>
+        <div className='flex items-center gap-4'>
+          <span className='w-12 h-[1px] bg-slate-700'></span>
+          <p className='text-[24px] md:text-[36px] tracking-wider'>
+            {siteConfig.profile}
+          </p>
+        </div>
+        <div className='md:flex w-full mt-24 gap-12 items-start justify-around'>
+          <div className='w-full md:w-[50%]'>
             <Image
-              className="w-full max-w-screen-lg rounded-lg aspect-video my-4 mt-10 md:mt-0"
-              src='https://images.pexels.com/photos/2486168/pexels-photo-2486168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+              className="w-full max-w-screen-lg"
+              src='/profile.JPG'
               alt=""
-              objectFit="cover"
-              width={640}
-              height={360}
-              quality={50}
+              width={400}
+              height={300}
             />
           </div>
-          <span className='h-72 w-0.5 bg-gray-400 md:block'></span>
-          <div className='mt-4 text-center md:text-left'>
-            <h1>Sanshiro Hikawa</h1>
-            <ul className='md:ml-2'>
-              <li>
-                <h4>所属</h4>
-                <p className='md:ml-4'>株式会社Gizumo GiztechPro事業部</p>
-              </li>
-              <li>
-                <h4>経歴</h4>
-                <p className='md:ml-4'>ジュピターテレコム（株）</p>
-                <p className='md:ml-4'>株式会社Gizumo GiztechPro事業部</p>
-              </li>
-              <li>
-                <h4>参画案件</h4>
-                <p className='md:ml-4'>自治体向けウェブサービス開発案件</p>
-              </li>
-            </ul>
+          <div className='text-left w-full mt-8 md:mt-0 md:w-1/2'>
+            <ruby>
+              <p className='text-[36px] md:text-[48px]'>
+                檜皮
+              </p>
+              <rt className="text-sm">
+                Hikawa
+              </rt>
+              <p className='text-[36px] md:text-[48px] ml-4'>
+                三四朗
+              </p>
+              <rt className="text-sm">
+                Sanshiro
+              </rt>
+            </ruby>
+            <p className='mt-4 text-lg'>1997年1月4日 生まれ</p>
+            <p className='mt-8 text-lg'>2020年にジュピターテレコム株式会社へ新卒入社。2022年8月から株式会社Gizumoに転職し、自治体向けサービス開発に参画。要件定義からテストまでの各工程を経験。現在TLとして新人育成やチーム管理を兼任。エンジニア歴3年目</p>
           </div>
         </div>
-        <p className='mt-10'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit id harum consequatur expedita consequuntur libero magni aut quae! Ipsum ipsa laborum ut repellat, illum nostrum? Quibusdam facilis earum et ducimus eligendi, voluptatum error nam quaerat culpa minus sunt odit assumenda delectus? Adipisci eos quisquam aspernatur sapiente accusantium? Fuga ipsam culpa quia, tempore ipsum cum corporis ab, facere molestiae ratione incidunt animi nihil, eum atque accusantium. Eius doloremque impedit quia consectetur tempore eligendi nulla, incidunt quas obcaecati debitis dolorem ipsam aperiam facere harum, asperiores, officiis autem nostrum dolores. Nesciunt corrupti porro accusamus maxime dolor non nemo repellendus quas autem. Id itaque blanditiis officia modi labore, asperiores sit nam nobis illo consectetur quibusdam eveniet vero qui nesciunt saepe eaque, quidem impedit alias molestiae perspiciatis quasi inventore? Explicabo, architecto aperiam rem rerum natus cumque corporis beatae deserunt nulla neque a ipsum? Vero consequatur earum ipsa nisi deserunt unde mollitia magni distinctio maiores! Dolorem libero voluptates ipsam sapiente nemo odio quis, nam voluptatum tenetur atque, est maxime, soluta vel nostrum voluptate officiis. Ratione adipisci illum accusantium ipsa repellat quasi dolore, perferendis enim suscipit fuga corrupti magni cupiditate expedita ad atque eos itaque. Quod iste doloremque beatae distinctio iure quas cumque aliquid suscipit exercitationem cupiditate.
-        </p>
       </div>
-      <div className='w-full h-auto flex flex-col items-center justify-center pt-20'>
-        <h1>{siteConfig.language}</h1>
-        <ul className='md:flex gap-20 mt-20'>
+      <div className='w-full h-auto flex flex-col pt-24 md:pt-60'>
+        <div className='flex items-center justify-end gap-4'>
+          <p className='text-[24px] md:text-[36px] tracking-wider'>
+            {siteConfig.language}
+          </p>
+          <span className='w-12 h-[1px] bg-slate-700'></span>
+        </div>
+        <ul className='grid grid-cols-1 md:grid-cols-4 gap-12 mt-24'>
           <li className='text-center'>
             <Link href='https://ja.legacy.reactjs.org/'>
               <div className='flex flex-col items-center justify-center'>
@@ -60,11 +85,11 @@ const TopPage = () => {
                   width={110}
                   height={110}
                 />
-                <p className='mt-4'>React</p>
+                <p className='mt-4 text-lg'>React</p>
               </div>
             </Link>
           </li>
-          <li className='text-center mt-10 md:mt-0'>
+          <li className='text-center'>
             <Link href='https://www.typescriptlang.org/'>
               <div className='flex flex-col items-center justify-center'>
                 <Image
@@ -73,11 +98,11 @@ const TopPage = () => {
                   width={100}
                   height={100}
                 />
-                <p className='mt-4'>TypeScript</p>
+                <p className='mt-4 text-lg'>TypeScript</p>
               </div>
             </Link>
           </li>
-          <li className='text-center mt-10 md:mt-0'>
+          <li className='text-center'>
             <Link href='https://nextjs.org/'>
               <div className='flex flex-col items-center justify-center'>
                 <Image
@@ -86,11 +111,11 @@ const TopPage = () => {
                   width={100}
                   height={100}
                 />
-                <p className='mt-4'>Next.js</p>
+                <p className='mt-4 text-lg'>Next.js</p>
               </div>
             </Link>
           </li>
-          <li className='text-center mt-10 md:mt-0'>
+          <li className='text-center'>
             <Link href='https://www.python.org/'>
               <div className='flex flex-col items-center justify-center'>
                 <Image
@@ -99,26 +124,30 @@ const TopPage = () => {
                   width={100}
                   height={100}
                 />
-                <p className='mt-4'>Python</p>
+                <p className='mt-4 text-lg'>Python</p>
               </div>
             </Link>
           </li>
         </ul>
-      </div> 
-      <div className='w-full h-auto flex flex-col items-center justify-center pt-20'>
-        <h1>{siteConfig.portfolio}</h1>
-        <div className="grid md:gap-20 mt-20 md:grid-cols-2 w-full my-12">
-          {slicedPortfolioList.map((portfolio) => (
-            <PortfolioCard
-              key={portfolio.id}
-              url={portfolio.url}
-              title={portfolio.title}
-            />
-          ))}
+      </div>
+      <div className='w-full h-auto flex flex-col pt-24 md:pt-60'>
+        <div className='flex items-center gap-4'>
+          <span className='w-12 h-[1px] bg-slate-700'></span>
+          <p className='text-[24px] md:text-[36px] tracking-wider'>
+            {siteConfig.articleList}
+          </p>
         </div>
-        <Link href='/portfolio'>
-          <button className='transition border border-black px-12 py-2 md:hover:scale-110'>MORE →</button>
-        </Link>
+        <div className="text-center mt-12">
+          <div className="grid grid-cols-1 md:gap-8 mt-20 md:grid-cols-2 xl:grid-cols-3 w-full my-12 gap-6">
+            {/* Card */}
+            {pages.map((page, index) => (
+              <Card key={index} page={page} />
+            ))}
+          </div>
+        </div>
+        <button className="mt-8 md:mt-12 transition duration-300 shadow-md border rounded-xl border-slate-700 py-4 w-64 mx-auto hover:bg-slate-700 hover:text-white">
+          MORE
+        </button>
       </div>
     </Layout>
   )

@@ -10,10 +10,12 @@ const MobileMenuItem: React.FC<MobileNavItemProps> = ({ pathName, menuName, setO
   }
   return (
     <li
-      className='w-full py-4'
+      className='w-full mt-2'
       onClick={() =>  changePage(pathName)}
     >
-      {menuName}
+      <p className='text-white text-lg'>
+        {menuName}
+      </p>
     </li>
   )
 }

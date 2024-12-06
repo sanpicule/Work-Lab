@@ -41,17 +41,7 @@ export const navMenuList = [
   },
   {
     id: 2,
-    menuName: `${siteConfig.portfolio}`,
-    pathName: '/portfolio'
-  },
-  {
-    id: 3,
     menuName: `${siteConfig.articleList}`,
     pathName: '/articles'
-  },
-  {
-    id: 4,
-    menuName: `${siteConfig.contact}`,
-    pathName: '/contact'
   },
 ]

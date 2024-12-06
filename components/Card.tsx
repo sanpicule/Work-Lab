@@ -7,39 +7,31 @@ import { getCover, getDate, getMultiSelect, getText } from "@/utils/property";
 const Card: FC<CardProps> = ({ page }) => {
   return (
     <Link href={`/articles/${getText(page.properties.slug.rich_text)}`}>
-      <div className="flex justify-center">
-        <div className="transition max-w-sm rounded overflow-hidden shadow-2xl w-full my-4 md:my-0 content-between grid md:hover:scale-90 md:hover:shadow-none">
-          {/* image */}
-          <div>
-            {" "}
-            <Image
-              className="static w-full h-52"
-              src={getCover(page.cover)}
-              alt=""
-              objectFit="cover"
-              width={400}
-              height={225}
-              quality={30}
-            />
-          </div>
- 
-          {/* title & date*/}
-          <div className="px-6 pt-4 ">
-            <h2 className="text-base font-medium mb-3 ">{getText(page.properties.name.title)}</h2>
-            <h5 className="text-gray-700 text-xs">{getDate(page.properties.published.date)}</h5>
-          </div>
- 
-          {/* tag */}
-          <div className="px-6 pb-4 ">
-            {getMultiSelect(page.properties.tags.multi_select).map((tag, index) => (
-              <span
-                key={index}
-                className="text-sm px-2 py-1 font-normal bg-gray-200 rounded-lg break-words mr-2 mb-2"
-              >
-                {`#${tag}`}
-              </span>
-            ))}
-          </div>
+      <div className="transition duration-200 hover:scale-105 flex flex-col rounded-md bg-slate-700 shadow-2xl overflow-hidden h-full">
+        {/* image */}
+        <Image
+          className="w-full h-40 object-cover"
+          src={getCover(page.cover)}
+          alt=""
+          width={400}
+          height={300}
+          quality={30}
+        />
+        {/* title & date*/}
+        <div className="px-6 pt-4 text-white text-start">
+          <p className="text-white">{getDate(page.properties.published.date)}</p>
+          <h4 className="text-white">{getText(page.properties.name.title)}</h4>
+        </div>
+        {/* tag */}
+        <div className="flex flex-wrap mt-2 px-2 pb-4">
+          {getMultiSelect(page.properties.tags.multi_select).map((tag, index) => (
+            <span
+              key={index}
+              className="text-sm px-2 py-1 font-normal bg-gray-200 rounded-lg break-words mr-2 mb-2"
+            >
+              {`#${tag}`}
+            </span>
+          ))}
         </div>
       </div>
     </Link>

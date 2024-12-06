@@ -20,7 +20,7 @@ const Home: NextPage<IndexProps> = ({ pages }) => {
     <Layout>
       <div className="pt-20 text-center">
         <h1>{siteConfig.articleList}</h1>
-        <div className="grid md:gap-6 mt-20 md:grid-cols-2 w-full my-12">
+        <div className="grid gap-6 mt-20 md:grid-cols-2 xl:grid-cols-3 w-full my-12">
           {/* Card */}
           {pages.map((page, index) => (
             <Card key={index} page={page} />

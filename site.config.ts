@@ -1,6 +1,5 @@
 export const siteConfig = {
-  title: 'Notion Next Blog',
-  portfolio: 'PORTFOLIO',
+  title: 'PostingProfile',
   articleList: 'ARTICLES',
   language: 'LANGUAGE',
   profile: 'PROFILE',

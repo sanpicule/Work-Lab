@@ -11,7 +11,7 @@ const NavBar = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <nav className="fixed z-10 bg-gray-700 w-full flex h-20 flex-wrap items-center justify-between py-3  text-white focus:text-gray-700 navbar navbar-expand-lg navbar-light">
+    <nav className="fixed z-10 w-full flex h-[60px] flex-wrap items-center justify-between py-3 navbar navbar-expand-lg navbar-light bg-white text-slate-700 font-serif">
       <div className="container-fluid w-full flex items-center justify-between px-6">
         <div
           className="bg-grey-light rounded-md w-1/3"
@@ -19,7 +19,7 @@ const NavBar = () => {
         >
           <Link href="/">
             <h5
-              className="text-white text-base md:text-lg lg:text-xl xl:text-2xl"
+              className="text-lg text-slate-700 lg:text-xl xl:text-2xl"
             >
               {siteConfig.title}
             </h5>
@@ -38,8 +38,8 @@ const NavBar = () => {
       </div>
 
       {/* スマホ時のメニュー */}
-      <div className={`${open ? 'transition ease-in-out translate-y-0 duration-300' : 'transition -translate-y-full ease-in-out duration-300'} p-4 fixed top-0 left-0 border border-black w-full bg-black opacity-90`}>
-        <ul className='w-full text-center'>
+      <div className={`rounded-xl ${open ? 'transition ease-in-out translate-y-0 duration-300' : 'transition translate-x-[200%] ease-in-out duration-700'} p-4 fixed top-2 right-0 border border-black w-[180px] bg-black opacity-90`}>
+        <ul className='w-full mt-10'>
           {navMenuList.map((navMenu) => (
             <MobileMenuItem
               key={navMenu.id}
