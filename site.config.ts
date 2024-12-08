@@ -4,7 +4,7 @@ export const siteConfig = {
   language: 'LANGUAGE',
   profile: 'PROFILE',
   home: 'HOME',
-  contact: 'CONTACT',
+  portfolio: 'PORTFOLIO',
   twitterUrl: 'https://twitter.com/barcanC_Cule',
   instagramUrl: 'https://www.instagram.com/pedri_picture_list/',
   githubUrl: 'https://github.com/sanpicule'

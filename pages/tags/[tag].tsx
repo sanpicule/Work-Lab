@@ -44,9 +44,9 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 const Tag: NextPage<TagProps> = ({ pages, tag }) => {
   return (
     <Layout>
-      <div className="pt-12">
+      <div className="pt-12 w-full">
         <h1 className="text-5xl mb-8">{`#${tag}`}</h1>
-        <div className="grid md:gap-6 mt-10 md:grid-cols-2 w-full my-12">
+        <div className="grid md:gap-6 mt-10 grid-cols-1 w-full my-12">
           {/* Card */}
           {pages.map((page, index) => (
             <Card key={index} page={page} />

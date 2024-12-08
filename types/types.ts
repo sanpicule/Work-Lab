@@ -91,3 +91,10 @@ export type PageType = {
   cover: FileType | null;
   properties: PropertyType;
 };
+
+export type Skill = {
+  skillName: string;
+  officialUrl: string;
+  imageUrl: string;
+  description: string;
+};

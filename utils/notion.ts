@@ -6,9 +6,11 @@ const DATABASE_ID = process.env.NOTION_DATABASE_ID as string;
 export const fetchPages = async ({
   slug,
   tag,
+  maxRange
 }: {
   slug?: string;
   tag?: string;
+  maxRange?: number;
 }) => {
   const and: any = [
     {
@@ -54,6 +56,7 @@ export const fetchPages = async ({
         direction: "descending",
       },
     ],
+    page_size: maxRange && maxRange,
   });
 };
  
