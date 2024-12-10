@@ -38,8 +38,8 @@ const NavBar = () => {
       </div>
 
       {/* スマホ時のメニュー */}
-      <div className={`${open ? 'transition ease-in-out translate-y-0 duration-300' : 'transition translate-x-[200%] ease-in-out duration-700'} p-4 fixed top-0 right-0 w-[40%] h-[60%] bg-black opacity-90`}>
-        <ul className='w-full mt-10'>
+      <div className={`${open ? 'transition ease-in-out translate-y-0 duration-300' : 'transition -translate-y-[200%] ease-in-out duration-700'} p-4 fixed top-0 right-0 w-full bg-black opacity-90`}>
+        <ul className='w-full mt-10 text-center'>
           {navMenuList.map((navMenu) => (
             <MobileMenuItem
               key={navMenu.id}
