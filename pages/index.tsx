@@ -67,19 +67,19 @@ const TopPage: NextPage<IndexProps> = ({pages}) => {
             {siteConfig.articleList}
           </p>
         </div>
-        <Link href={'/articles'} className="ml-auto mt-12" scroll={false}>
-          <button className="transition duration-300 border text-sm md:text-base rounded-full border-slate-700 py-2 px-4 hover:bg-slate-700 hover:text-white hover:translate-x-2">
-            記事をもっと見る
-          </button>
-        </Link>
         <div className="text-center mt-4 md:mt-12">
-          <div className="grid grid-cols-1 w-full mb-12 gap-4">
+          <div className="grid grid-cols-1 w-full gap-4">
             {/* Card */}
             {pages.map((page, index) => (
               <Card key={index} page={page} />
             ))}
           </div>
         </div>
+        <Link href={'/articles'} className="ml-auto mt-4" scroll={false}>
+          <button className="transition duration-300 border text-sm md:text-base rounded-full border-slate-700 py-2 px-4 hover:bg-slate-700 hover:text-white hover:translate-x-2">
+            記事をもっと見る
+          </button>
+        </Link>
       </div>
       <div className='w-full h-auto flex flex-col mt-36'>
         <div className='flex items-center justify-end gap-4'>
