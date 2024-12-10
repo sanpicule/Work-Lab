@@ -3,7 +3,7 @@ import Layout from '@/components/Layout'
 import { siteConfig } from '@/site.config'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import { fetchPages } from "@/utils/notion";
 import { IndexProps } from "@/types/types";
 import Card from "@/components/Card";
@@ -32,14 +32,14 @@ const TopPage: NextPage<IndexProps> = ({pages}) => {
         height={360}
         quality={50}
       />
-      <div className='w-full h-auto flex flex-col justify-center mt-12 md:pt-24'>
+      <div className='w-full h-auto flex flex-col justify-center mt-24'>
         <div className='flex items-center gap-4'>
           <span className='w-12 h-[1px] bg-slate-700'></span>
-          <p className='text-[24px] md:text-[36px] tracking-wider'>
+          <p className='text-[24px] md:text-[36px]'>
             {siteConfig.profile}
           </p>
         </div>
-        <div className='md:flex w-full mt-12 md:mt-24 gap-12 items-start justify-around'>
+        <div className='md:flex w-full mt-8 md:mt-12 gap-12 items-start justify-around'>
           <div className='w-full md:w-[50%]'>
             <Image
               className="w-full max-w-screen-lg grayscale"
@@ -49,31 +49,41 @@ const TopPage: NextPage<IndexProps> = ({pages}) => {
               height={300}
             />
           </div>
-          <div className='text-left w-full mt-8 md:mt-0 md:w-1/2'>
-            <ruby>
-              <p className='text-[36px] md:text-[48px]'>
-                檜皮
-              </p>
-              <rt className="text-sm">
-                Hikawa
-              </rt>
-              <p className='text-[36px] md:text-[48px] ml-4'>
-                三四朗
-              </p>
-              <rt className="text-sm">
-                Sanshiro
-              </rt>
-            </ruby>
-            <p className='mt-4 md:text-lg'>1997年1月4日 生まれ</p>
-            <p className='mt-8 md:text-lg'>2020年にジュピターテレコム株式会社へ新卒入社。2022年8月から株式会社Gizumoに転職し、自治体向けサービス開発に参画。要件定義からテストまでの各工程を経験。現在TLとして新人育成やチーム管理を兼任。エンジニア歴3年目</p>
+          <div className='text-left w-full mt-4 md:mt-0 md:w-1/2'>
+            <p className='text-[36px] md:text-[48px] italic'>
+              H.Sanshiro
+            </p>
+            <p className='mt-2 md:text-[16px]'>1997年1月4日 生まれ</p>
+            <p className='mt-4 md:text-[16px]'>2020年にジュピターテレコム株式会社へ新卒入社。2022年8月から株式会社Gizumoに転職し、自治体向けサービス開発に参画。要件定義からテストまでの各工程を経験。現在TLとして新人育成やチーム管理を兼任。エンジニア歴3年目</p>
             <SnsIcons />
           </div>
         </div>
       </div>
       <Skills />
-      <div className='w-full h-auto flex flex-col mt-12 md:mt-60'>
+      <div className='w-full h-auto flex flex-col mt-36'>
+        <div className='flex items-center gap-4'>
+          <span className='w-12 h-[1px] bg-slate-700'></span>
+          <p className='text-[24px] md:text-[36px]'>
+            {siteConfig.articleList}
+          </p>
+        </div>
+        <Link href={'/articles'} className="ml-auto mt-12" scroll={false}>
+          <button className="transition duration-300 border text-sm md:text-base rounded-full border-slate-700 py-2 px-4 hover:bg-slate-700 hover:text-white hover:translate-x-2">
+            記事をもっと見る
+          </button>
+        </Link>
+        <div className="text-center mt-4 md:mt-12">
+          <div className="grid grid-cols-1 w-full mb-12 gap-4">
+            {/* Card */}
+            {pages.map((page, index) => (
+              <Card key={index} page={page} />
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className='w-full h-auto flex flex-col mt-36'>
         <div className='flex items-center justify-end gap-4'>
-          <p className='text-[24px] md:text-[36px] tracking-wider'>
+          <p className='text-[24px] md:text-[36px]'>
             {siteConfig.portfolio}
           </p>
           <span className='w-12 h-[1px] bg-slate-700'></span>
@@ -139,27 +149,6 @@ const TopPage: NextPage<IndexProps> = ({pages}) => {
               <p>PostingProfile: このポートフォリオサイト</p>
             </div>
           </Link>
-        </div>
-      </div>
-      <div className='w-full h-auto flex flex-col mt-12 md:mt-60'>
-        <div className='flex items-center gap-4'>
-          <span className='w-12 h-[1px] bg-slate-700'></span>
-          <p className='text-[24px] md:text-[36px] tracking-wider'>
-            {siteConfig.articleList}
-          </p>
-        </div>
-        <Link href={'/articles'} className="ml-auto mt-12">
-          <button className="transition duration-300 border text-sm md:text-base rounded-full border-slate-700 py-2 px-4 hover:bg-slate-700 hover:text-white hover:translate-x-2">
-            記事をもっと見る
-          </button>
-        </Link>
-        <div className="text-center mt-4 md:mt-12">
-          <div className="grid grid-cols-1 w-full mb-12 gap-4">
-            {/* Card */}
-            {pages.map((page, index) => (
-              <Card key={index} page={page} />
-            ))}
-          </div>
         </div>
       </div>
     </Layout>

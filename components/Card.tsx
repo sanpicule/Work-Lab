@@ -5,7 +5,7 @@ import { getDate, getMultiSelect, getText } from "@/utils/property";
  
 const Card: FC<CardProps> = ({ page }) => {
   return (
-    <Link href={`/articles/${getText(page.properties.slug.rich_text)}`}>
+    <Link href={`/articles/${getText(page.properties.slug.rich_text)}`} scroll={false}>
       <div className="transition duration-200 hover:scale-[102%] flex flex-col rounded-md border border-slate-700 overflow-hidden h-full bg-white w-full">
         {/* title & date*/}
         <div className="px-6 pt-4 text-start">

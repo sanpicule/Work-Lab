@@ -11,7 +11,7 @@ const Footer = () => {
       </div>
       {/* copyright */}
       <div className="text-start p-4 ">
-        <Link href="/">
+        <Link href="/" scroll={false}>
           <p className="text-white text-xs">©{siteConfig.title}</p>
         </Link>
       </div>

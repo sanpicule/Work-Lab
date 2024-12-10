@@ -38,6 +38,7 @@ const ArticleMeta: React.FC<ArticleMetaProps> = ({ page }) => {
               <Link
                 key={index}
                 href={`/tags/${tag}`}
+                scroll={false}
               >
                 <span className='text-gray-700 no-underline border-b border-solid border-gray-700 opacity-70 mr-3'>
                   {`#${tag}`}

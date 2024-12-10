@@ -8,8 +8,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        'spin-scale-in': 'spinScaleIn 0.5s ease-out',
+        'spin-scale-out': 'spinScaleOut 0.5s ease-out',
+      },
+      keyframes: {
+        spinScaleIn: {
+          '0%': { transform: 'scale(0) rotate(0deg)', opacity: '0' },
+          '100%': { transform: 'scale(1) rotate(360deg)', opacity: '1' },
+        },
+        spinScaleOut: {
+          '0%': { transform: 'scale(1) rotate(0deg)', opacity: '1' },
+          '100%': { transform: 'scale(0) rotate(-360deg)', opacity: '0' },
+        },
+      },
       fontSize: {
-        'base': '0.8rem',    // デフォルトのフォントサイズ
+        'base': '1rem',    // デフォルトのフォントサイズ
         'lg': '1.125rem',   // 中サイズのフォントサイズ
         'xl': '1.25rem',    // 大サイズのフォントサイズ
         '2xl': '1.5rem',    // 超大サイズのフォントサイズ

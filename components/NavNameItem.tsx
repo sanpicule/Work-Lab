@@ -8,6 +8,7 @@ const NavNameItem: React.FC<NavMenuItemProps> = ({ pathName, menuName }) => {
       <Link
         href={pathName}
         className='transition container ml-6 cursor-pointer hover:opacity-40 hover:border-b-2 border-opacity-40'
+        scroll={false}
       >
         {menuName}
       </Link>

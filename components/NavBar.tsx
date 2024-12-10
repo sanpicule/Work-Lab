@@ -17,7 +17,7 @@ const NavBar = () => {
           className="bg-grey-light rounded-md w-1/3"
           aria-label="breadcrumb"
         >
-          <Link href="/">
+          <Link href="/" scroll={false}>
             <h5
               className="text-lg text-slate-700 lg:text-xl xl:text-2xl"
             >
@@ -38,7 +38,7 @@ const NavBar = () => {
       </div>
 
       {/* スマホ時のメニュー */}
-      <div className={`rounded-xl ${open ? 'transition ease-in-out translate-y-0 duration-300' : 'transition translate-x-[200%] ease-in-out duration-700'} p-4 fixed top-2 right-0 border border-black w-[180px] bg-black opacity-90`}>
+      <div className={`${open ? 'transition ease-in-out translate-y-0 duration-300' : 'transition translate-x-[200%] ease-in-out duration-700'} p-4 fixed top-0 right-0 w-[40%] h-[60%] bg-black opacity-90`}>
         <ul className='w-full mt-10'>
           {navMenuList.map((navMenu) => (
             <MobileMenuItem

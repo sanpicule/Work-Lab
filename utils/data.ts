@@ -66,9 +66,9 @@ export const skillList = [
     "description": "Next.jsを活用し、サーバーサイドレンダリング（SSR）や静的サイト生成（SSG）を用いたSEOに強いウェブサイトを構築しました。TailwindCSSを利用してデザインの効率化を図りながら、動的ルーティングやメール送信機能を備えたコンタクトフォームの実装にも対応しました。これにより、フロントエンドとバックエンドを統合した柔軟な開発が可能です。"
   },
   {
-    "skillName": "Python",
-    "officialUrl": "https://www.python.org/",
-    "imageUrl": "https://cdn.icon-icons.com/icons2/112/PNG/512/python_18894.png",
+    "skillName": "Supabase",
+    "officialUrl": "https://supabase.com/",
+    "imageUrl": "https://www.quantedsquare.com/services/tools-images/logo_supabase.svg",
     "description": "Pythonでは、FastAPIを用いてバックエンドAPIを構築し、AWS Cognitoを利用したユーザー認証システムを開発しました。また、データ処理や分析を効率化するスクリプトを作成し、タスクの自動化にも対応しています。これにより、バックエンドロジックの設計と運用の効率化を実現しました。"
   },
 ]
