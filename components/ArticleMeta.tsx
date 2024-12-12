@@ -7,19 +7,8 @@ import React from 'react'
 const ArticleMeta: React.FC<ArticleMetaProps> = ({ page }) => {
   return (
     <>
-      {/* page cover */}
-      <Image
-        className="w-full max-w-screen-lg rounded-lg aspect-video my-4 mx-auto"
-        src={getCover(page.cover)}
-        alt=""
-        objectFit="cover"
-        width={640}
-        height={360}
-        quality={50}
-      />
-
       {/* page name */}
-      <h1 className="my-8">{getText(page.properties.name.title)}</h1>
+      <h2 className="my-8">{getText(page.properties.name.title)}</h2>
       <div className="bg-gray-100 px-6 py-4 rounded text-sm text-gray-500">
         <div className="grid grid-cols-3 gap-4">
           {/* published */}

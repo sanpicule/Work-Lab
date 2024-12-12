@@ -2,34 +2,28 @@ import { siteConfig } from "@/site.config"
 
 export const portfolioList = [
   {
-    id: 1,
-    title: 'SPLink',
-    url: 'https://sp-link-sannsi4444-gmailcom.vercel.app/'
+    id: 'kikara',
+    title: 'Kikara: Next.jsで作製したホームページ',
+    url: 'https://kikara-official.vercel.app/',
+    image: '/portforio1.png'
   },
   {
-    id: 2,
-    title: 'SPLink',
-    url: 'https://sp-link-sannsi4444-gmailcom.vercel.app/'
+    id: 'tinypost',
+    title: 'TinyPost: 簡易CMS',
+    url: 'https://tinypost-three.vercel.app/',
+    image: '/portforio2.png'
   },
   {
-    id: 3,
-    title: 'SPLink',
-    url: 'https://sp-link-sannsi4444-gmailcom.vercel.app/'
+    id: 'splink',
+    title: 'sp-link: React×Firebaseで作る投稿アプリ',
+    url: 'https://sp-link.vercel.app/',
+    image: '/portforio3.png'
   },
   {
-    id: 4,
-    title: 'SPLink',
-    url: 'https://sp-link-sannsi4444-gmailcom.vercel.app/'
-  },
-  {
-    id: 5,
-    title: 'SPLink',
-    url: 'https://sp-link-sannsi4444-gmailcom.vercel.app/'
-  },
-  {
-    id: 6,
-    title: 'SPLink',
-    url: 'https://sp-link-sannsi4444-gmailcom.vercel.app/'
+    id: 'postingprofile',
+    title: 'PostingProfile: このポートフォリオサイト',
+    url: 'https://notion-blog-gray-theta.vercel.app/',
+    image: '/portforio4.png'
   },
 ]
 

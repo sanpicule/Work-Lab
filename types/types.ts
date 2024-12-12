@@ -41,6 +41,7 @@ export type PortfolioCardProps = {
 }
 
 export type TagProps = IndexProps & { tag: string }
+export type KindsProps = IndexProps & { kinds: string }
  
 export type CardProps = { page: PageType };
 
@@ -55,6 +56,10 @@ export type IndexProps = { pages: PageType[] };
 export type Params = ParsedUrlQuery & {
   slug?: string;
   tag?: string
+};
+
+export type kindsParams = ParsedUrlQuery & {
+  kinds?: string;
 };
  
 export type FileType = {
@@ -98,3 +103,8 @@ export type Skill = {
   imageUrl: string;
   description: string;
 };
+
+export type Portfolio = {
+  skills: Array<String>,
+  title: string
+}

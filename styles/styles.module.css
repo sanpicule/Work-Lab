@@ -16,13 +16,12 @@
   width: auto;
   height: auto;
   max-height: 500;
-  & .child2 {
-    color: black;
-    margin-top: 12px;
-  }
 }
 
 .child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   width: 70px;
   height: 70px;
   cursor: pointer;

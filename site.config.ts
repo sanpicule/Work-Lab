@@ -1,7 +1,7 @@
 export const siteConfig = {
   title: 'PostingProfile',
   articleList: 'ARTICLES',
-  language: 'LANGUAGE',
+  language: 'SKILLS',
   profile: 'PROFILE',
   home: 'HOME',
   portfolio: 'PORTFOLIO',
