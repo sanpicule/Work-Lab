@@ -8,9 +8,10 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  overflow: hidden;
 }
 
-.parent[data-isOpen="true"] {
+.parent[data-isOpen='true'] {
   padding: 20px;
   align-items: flex-start;
   width: auto;
@@ -26,6 +27,3 @@
   height: 70px;
   cursor: pointer;
 }
-
-
-

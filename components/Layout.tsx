@@ -1,13 +1,13 @@
 import React from 'react'
 import NavBar from './NavBar'
 import Footer from './Footer'
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion'
 import { LayoutProps } from '@/types/types'
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="relative overflow-hidden">
-      <div className="flex flex-col items-center max-w-6xl w-full mx-auto">
+    <div className='body relative overflow-hidden'>
+      <div className='flex flex-col items-center max-w-6xl w-full mx-auto'>
         <NavBar />
         <motion.div
           initial={{ opacity: 0, x: 20 }}

@@ -3,9 +3,7 @@ import PortfolioDetail from '@/components/PortfolioDetail'
 import React from 'react'
 
 const index = () => {
-  const skills = [
-    'React',
-  ]
+  const skills = ['React']
   return (
     <Layout>
       <PortfolioDetail title='TinyPost' skills={skills} />
