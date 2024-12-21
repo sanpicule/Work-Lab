@@ -23,13 +23,12 @@ const ArticleMeta: React.FC<ArticleMetaProps> = ({ page }) => {
           </div>
 
           {/* tags */}
-          <div className='col-span-1'>Tags</div>
-          <div className='col-span-2'>
-            {/* change later */}
+          <div>Tags</div>
+          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
             {getMultiSelect(page.properties.tags.multi_select).map(
               (tag: string, index: number) => (
                 <Link key={index} href={`/tags/${tag}`} scroll={false}>
-                  <span className='text-gray-700 no-underline border-b border-solid border-gray-700 opacity-70 mr-3'>
+                  <span className='text-gray-700 no-underline border-b border-solid border-gray-700 opacity-70 '>
                     {`#${tag}`}
                   </span>
                 </Link>
