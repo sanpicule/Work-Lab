@@ -10,7 +10,7 @@ import HomeArticles from '@/components/HomeArticles'
 import Profile from '@/components/Profile'
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { results } = await fetchPages({ maxRange: 6 })
+  const { results } = await fetchPages({ maxRange: 3 })
   return {
     props: {
       pages: results ? results : [],
