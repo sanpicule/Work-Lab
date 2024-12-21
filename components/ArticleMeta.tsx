@@ -26,7 +26,7 @@ const ArticleMeta: React.FC<ArticleMetaProps> = ({ page }) => {
             {getMultiSelect(page.properties.tags.multi_select).map(
               (tag: string, index: number) => (
                 <Link key={index} href={`/tags/${tag}`} scroll={false}>
-                  <p className='text-slate-700 border-b border-slate-500 text-[12px] md:text-[14px]'>
+                  <p className='border-b border-slate-500 text-[12px] md:text-[14px]'>
                     {`#${tag}`}
                   </p>
                 </Link>

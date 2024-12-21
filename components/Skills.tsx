@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import styles from '../styles/styles.module.css'
 import Link from 'next/link'
 import useCustomAnimation from '@/hooks/useCustomAnimation'
+import SectionTitle from './SectionTitle'
 export const Skills = () => {
   const customAnimate = useCustomAnimation()
   const [openSkill, setOpenSkill] = useState<Skill | null>(null)
@@ -19,16 +20,7 @@ export const Skills = () => {
   }
   return (
     <div className='w-full h-auto flex flex-col mt-36'>
-      <motion.div
-        variants={customAnimate.scrollFadeInFromTop}
-        initial={customAnimate.scrollFadeInFromTop.initial}
-        whileInView={customAnimate.scrollFadeInFromTop.whileInView}
-        viewport={customAnimate.scrollFadeInFromTop.viewport}
-        className='flex items-center justify-end gap-4'
-      >
-        <p className='text-[24px] md:text-[36px]'>{siteConfig.language}</p>
-        <span className='w-12 h-[1px] bg-slate-700'></span>
-      </motion.div>
+      <SectionTitle title={siteConfig.language} />
       <motion.ul
         variants={customAnimate.scrollFadeInFromBottom}
         initial={customAnimate.scrollFadeInFromBottom.initial}

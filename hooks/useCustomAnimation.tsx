@@ -1,7 +1,7 @@
 const useCustomAnimation = () => {
   const scrollFadeInFromBottom = {
     initial: {
-      y: 150,
+      y: 50,
       opacity: 0,
     },
     whileInView: {
@@ -15,7 +15,7 @@ const useCustomAnimation = () => {
   }
   const scrollFadeInFromTop = {
     initial: {
-      y: -150,
+      y: -50,
       opacity: 0,
     },
     whileInView: {

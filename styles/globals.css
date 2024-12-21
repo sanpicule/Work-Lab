@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  color: #202022;
+}
+
 h1 {
   @apply font-semibold leading-tight text-4xl mt-0 mb-2;
 }
@@ -12,10 +16,10 @@ h3 {
   @apply font-semibold leading-tight text-2xl mt-0 mb-2;
 }
 h4 {
-  @apply leading-tight text-lg text-slate-700;
+  @apply leading-tight text-lg;
 }
 p {
-  @apply font-light leading-relaxed text-base text-slate-700;
+  @apply font-light leading-relaxed text-base;
 }
 main {
   @apply min-h-screen flex flex-col justify-center items-center;
