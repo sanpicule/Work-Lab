@@ -48,7 +48,7 @@ const Article: NextPage<ArticleProps> = ({ page, blocks }) => {
         <div className='my-12'>
           <ArticleMeta page={page} />
         </div>
-        <div className='my-12'>
+        <div className='my-12 w-[350px] md:w-[700px] lg:w-full'>
           <NotionBlocks blocks={blocks} isCodeHighlighter={true} />
         </div>
       </article>
