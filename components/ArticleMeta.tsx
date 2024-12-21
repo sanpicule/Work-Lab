@@ -8,29 +8,27 @@ const ArticleMeta: React.FC<ArticleMetaProps> = ({ page }) => {
     <>
       {/* page name */}
       <h2 className='my-8'>{getText(page.properties.name.title)}</h2>
-      <div className='bg-gray-100 px-6 py-4 rounded text-sm text-gray-500'>
-        <div className='grid grid-cols-3 gap-4'>
-          {/* published */}
-          <div className='col-span-1'>Published</div>
-          <div className='col-span-2'>
-            {getDate(page.properties.published.date)}
-          </div>
-
-          {/* author */}
-          <div className='col-span-1'>Author</div>
-          <div className='col-span-2'>
-            {getText(page.properties.author.rich_text)}
-          </div>
-
-          {/* tags */}
-          <div>Tags</div>
-          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
+      <div className='bg-gray-100 px-6 py-4 rounded text-sm text-gray-500 w-full'>
+        {/* published */}
+        <div className='flex items-center gap-4'>
+          <div className='w-[100px]'>Published</div>
+          <div>{getDate(page.properties.published.date)}</div>
+        </div>
+        {/* author */}
+        <div className='flex items-center gap-4 mt-2'>
+          <div className='w-[100px]'>Author</div>
+          <div>{getText(page.properties.author.rich_text)}</div>
+        </div>
+        {/* tags */}
+        <div className='flex items-start gap-4 mt-2'>
+          <div className='w-[100px]'>Tags</div>
+          <div className='flex flex-wrap gap-4'>
             {getMultiSelect(page.properties.tags.multi_select).map(
               (tag: string, index: number) => (
                 <Link key={index} href={`/tags/${tag}`} scroll={false}>
-                  <span className='text-gray-700 no-underline border-b border-solid border-gray-700 opacity-70 '>
+                  <p className='text-slate-700 border-b border-slate-500 text-[12px] md:text-[14px]'>
                     {`#${tag}`}
-                  </span>
+                  </p>
                 </Link>
               )
             )}
