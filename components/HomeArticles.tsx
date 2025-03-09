@@ -11,7 +11,7 @@ import SectionTitle from './SectionTitle'
 const HomeArticles: NextPage<IndexProps> = ({ pages }) => {
   const customAnimate = useCustomAnimation()
   return (
-    <div className='w-full h-auto flex flex-col mt-36'>
+    <div className='w-full h-auto flex flex-col mt-36 px-8 md:px-20 max-w-6xl'>
       <SectionTitle title={siteConfig.articleList} />
       <motion.div
         variants={customAnimate.scrollFadeInFromBottom}

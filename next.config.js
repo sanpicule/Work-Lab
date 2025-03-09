@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    formats: ['image/avif', 'image/webp'],
     domains: [
       'www.notion.so',
       's3.us-west-2.amazonaws.com',
