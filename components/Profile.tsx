@@ -9,7 +9,7 @@ import SectionTitle from './SectionTitle'
 const Profile = () => {
   const customAnimate = useCustomAnimation()
   return (
-    <div className='w-full h-auto flex flex-col justify-center mt-24'>
+    <div className='w-full h-auto flex flex-col justify-center mt-12 p-8 md:px-20 max-w-6xl'>
       <SectionTitle title={siteConfig.profile} />
       <motion.div
         variants={customAnimate.scrollFadeInFromBottom}

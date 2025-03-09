@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 const Tag: NextPage<TagProps> = ({ pages, tag }) => {
   return (
     <Layout>
-      <div className='pt-12 w-full'>
+      <div className='w-full px-8 md:px-20 max-w-6xl'>
         <h2 className='mb-8'>{`#${tag}`}</h2>
         <div className='grid gap-8 mt-10 grid-cols-1 md:grid-cols-3 w-full my-12'>
           {/* Card */}
