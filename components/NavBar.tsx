@@ -18,9 +18,9 @@ const NavBar = () => {
     <>
       <motion.div
         style={{ scaleX: scrollYProgress }}
-        className='z-50 t-0 l-0 r-0 h-1 w-full origin-[0%] fixed bg-gradient-to-r from-red-300 to-red-500'
+        className='z-50 t-0 l-0 r-0 h-1 w-full origin-[0%] fixed bg-gradient-to-r from-green-300 to-green-800'
       />
-      <nav className='fixed z-10 w-full flex h-[60px] flex-wrap items-center justify-between py-3 navbar navbar-expand-lg navbar-light bg-white text-[#202022]'>
+      <nav className='fixed z-10 w-full flex h-[60px] flex-wrap items-center justify-between py-3 navbar navbar-expand-lg navbar-light text-[#fff]'>
         <div className='container-fluid w-full flex items-center justify-between px-6'>
           <ul className='flex items-center justify-end gap-8 ml-auto'>
             {navMenuList.map((navMenu) => (

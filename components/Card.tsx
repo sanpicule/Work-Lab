@@ -30,7 +30,7 @@ const Card: FC<CardProps> = ({ page }) => {
         href={`/articles/${getText(page.properties.slug.rich_text)}`}
         scroll={false}
       >
-        <div className='transition duration-200 hover:md:scale-[105%] flex flex-col hover:md:shadow-[0px_0px_15px_0px_#2445a1] overflow-hidden bg-white w-full shadow-lg rounded-lg h-full'>
+        <div className='transition duration-200 hover:md:scale-[105%] flex flex-col hover:md:shadow-[0px_0px_15px_0px_#000000] overflow-hidden bg-white w-full shadow-lg rounded-lg h-full text-slate-700'>
           <div className='w-full h-[150px] md:h-[120px]'>
             <Image
               className='object-cover h-full w-full'
