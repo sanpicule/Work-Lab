@@ -10,9 +10,11 @@ import SectionTitle from './SectionTitle'
 function Portfolio() {
   const customAnimate = useCustomAnimation()
   return (
-    <div className='w-full mt-36 bg-slate-700 shadow-[0px_0px_20px_0px_#000]'>
-      <div className='max-w-6xl mx-auto w-full h-auto flex flex-col rounded-[40px] py-8 px-8 md:py-40 md:px-20 text-white'>
-        <SectionTitle title={siteConfig.portfolio} />
+    <div className='w-full mt-4 py-20 bg-[#2e2e2e] shadow-[0px_0px_20px_0px_#000]'>
+      <div className='max-w-6xl mx-auto w-full h-auto flex flex-col rounded-[40px] py-8 px-8 md:py-40 md:px-20'>
+        <div className='text-white border-b-2 border-[#17afc6]'>
+          <SectionTitle title={siteConfig.portfolio} />
+        </div>
         <motion.div
           variants={customAnimate.scrollFadeInFromBottom}
           initial={customAnimate.scrollFadeInFromBottom.initial}
@@ -23,7 +25,7 @@ function Portfolio() {
           {portfolioList.map((portfolio) => (
             <div
               key={portfolio.id}
-              className='flex flex-col items-center justify-center gap-4 rounded-2xl'
+              className='flex flex-col items-center justify-center gap-4 rounded-2xl text-white'
             >
               <Link href={portfolio.url} target='_blank'>
                 <div className='relative transition duration-500 w-full h-full cursor-pointer overflow-hidden hover:-translate-x-2 hover:-translate-y-2 hover:shadow-2xl rounded-md'>
