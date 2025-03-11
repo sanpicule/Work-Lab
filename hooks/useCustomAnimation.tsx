@@ -29,14 +29,28 @@ const useCustomAnimation = () => {
   }
 
   const menuVariants = {
-    open: { x: 0, transition: { duration: 0.5, ease: 'easeInOut' } },
-    closed: { x: '200%', transition: { duration: 0.7, ease: 'easeInOut' } },
+    open: {
+      opacity: 1,
+      display: 'flex',
+      transition: {
+        opacity: { duration: 0.5, ease: 'easeInOut' },
+        display: { delay: 0 },
+      },
+    },
+    closed: {
+      opacity: 0,
+      display: 'none',
+      transition: {
+        opacity: { duration: 0.5, ease: 'easeInOut' },
+        display: { delay: 0.5 },
+      },
+    },
   }
 
   return {
     scrollFadeInFromBottom,
     scrollFadeInFromTop,
-    menuVariants
+    menuVariants,
   }
 }
 export default useCustomAnimation

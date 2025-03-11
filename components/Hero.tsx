@@ -12,7 +12,7 @@ const Hero = () => {
         height={2000}
         quality={100}
       />
-      <h1 className='absolute bottom-[20px] md:top-1/2 left-[30px] md:left-[50px] font-bold text-white text-7xl md:text-9xl'>
+      <h1 className='absolute bottom-[40px] md:top-1/2 left-[30px] md:left-[50px] font-bold text-white text-7xl md:text-9xl'>
         Getting<br></br>Started
       </h1>
     </div>

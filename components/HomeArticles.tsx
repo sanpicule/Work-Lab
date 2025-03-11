@@ -38,7 +38,7 @@ const HomeArticles: NextPage<IndexProps> = ({ pages }) => {
       >
         <Link href={'/articles'} scroll={false}>
           <motion.button
-            className='py-2 px-4 rounded-full cursor-pointer bg-white text-slate-700 hover:shadow-[0px_0px_10px_0px_#efbebe]'
+            className='py-2 px-8 rounded-full cursor-pointer font-bold bg-[#2e2e2e] text-white shadow-lg hover:shadow-[0px_0px_10px_0px_#efbebe]'
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
