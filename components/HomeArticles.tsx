@@ -11,8 +11,10 @@ import SectionTitle from './SectionTitle'
 const HomeArticles: NextPage<IndexProps> = ({ pages }) => {
   const customAnimate = useCustomAnimation()
   return (
-    <div className='w-full h-auto flex flex-col mt-36 px-8 md:px-20 max-w-6xl'>
-      <SectionTitle title={siteConfig.articleList} />
+    <div className='w-full h-auto flex flex-col justify-center py-20 px-8 md:px-20 max-w-6xl min-h-screen'>
+      <div className='border-b-2 border-[#17afc6]'>
+        <SectionTitle title={siteConfig.articleList} />
+      </div>
       <motion.div
         variants={customAnimate.scrollFadeInFromBottom}
         initial={customAnimate.scrollFadeInFromBottom.initial}
@@ -36,7 +38,7 @@ const HomeArticles: NextPage<IndexProps> = ({ pages }) => {
       >
         <Link href={'/articles'} scroll={false}>
           <motion.button
-            className='py-2 px-4 rounded-full cursor-pointer bg-slate-700 text-white hover:shadow-[0px_0px_10px_0px_#17afc6]'
+            className='py-2 px-8 rounded-full cursor-pointer font-bold bg-[#2e2e2e] text-white shadow-lg hover:shadow-[0px_0px_10px_0px_#efbebe]'
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}

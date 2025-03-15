@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.6 }}
         >
-          <main className='w-full pt-[60px]'>
+          <main className='w-full bg-[#f2f2f2d1]'>
             {children}
           </main>
         </motion.div>
