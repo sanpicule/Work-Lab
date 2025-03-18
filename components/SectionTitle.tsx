@@ -1,4 +1,5 @@
 import useCustomAnimation from '@/hooks/useCustomAnimation'
+import { caveat } from '@/utils/font';
 import { motion } from 'framer-motion'
 
 type SectionTitleProps = {
@@ -15,7 +16,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
       viewport={customAnimate.scrollFadeInFromTop.viewport}
       className='flex items-center gap-4'
     >
-      <p className='text-6xl tracking-wider font-bold'>{title}</p>
+      <p className={`${caveat.className} text-4xl md:text-6xl tracking-wider font-extralight font-serif`}>{title}</p>
     </motion.div>
   )
 }

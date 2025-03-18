@@ -11,7 +11,7 @@ import SectionTitle from './SectionTitle'
 const HomeArticles: NextPage<IndexProps> = ({ pages }) => {
   const customAnimate = useCustomAnimation()
   return (
-    <div className='w-full h-auto flex flex-col justify-center py-20 px-8 md:px-20 max-w-6xl min-h-screen'>
+    <div className='w-full h-auto flex flex-col justify-center py-24 px-8 md:px-20 md:py-40 max-w-6xl'>
       <div className='border-b-2 border-[#17afc6]'>
         <SectionTitle title={siteConfig.articleList} />
       </div>
@@ -38,12 +38,12 @@ const HomeArticles: NextPage<IndexProps> = ({ pages }) => {
       >
         <Link href={'/articles'} scroll={false}>
           <motion.button
-            className='py-2 px-8 rounded-full cursor-pointer font-bold bg-[#2e2e2e] text-white shadow-lg hover:shadow-[0px_0px_10px_0px_#efbebe]'
+            className='py-3 px-8 rounded-md cursor-pointer font-bold bg-[#17afc6] text-white shadow-lg hover:shadow-[0px_0px_10px_0px_#efbebe]'
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
           >
-            <p className='text-sm'>記事をもっと見る</p>
+            <p className='text-sm font-bold'>記事をもっと見る</p>
           </motion.button>
         </Link>
       </motion.div>
