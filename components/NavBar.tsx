@@ -7,6 +7,7 @@ import CloseButton from './MobileCloseButton'
 import { motion, useScroll } from 'framer-motion'
 import useCustomAnimation from '@/hooks/useCustomAnimation'
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6'
+import { SnsIcons } from './SnsIcons'
 
 const NavBar = () => {
   const [open, setOpen] = useState(false)
@@ -29,9 +30,8 @@ const NavBar = () => {
                 menuName={navMenu.menuName}
               />
             ))}
-            <button className='hidden md:flex items-center gap-2 bg-[#17afc6] text-white px-4 py-2 rounded-md font-bold'>
-              <p>仕事を依頼する</p>
-              <FaArrowUpRightFromSquare />
+            <button className='hidden md:flex items-center gap-2 bg-[#17afc6] text-white px-4 py-2 rounded-md transition font-bold hover:opacity-80'>
+              <p className='text-sm'>仕事を依頼する</p>
             </button>
           </ul>
           <Hamburger setOpen={setOpen} />
@@ -54,27 +54,16 @@ const NavBar = () => {
               />
             ))}
             <h4 className='mt-4 font-bold'>SNS</h4>
-            <li className='flex justify-between border-b-[1px] pb-2 px-2'>
-              <p>Zenn</p>
-              <button className='bg-white text-sm text-black px-2 rounded-[100px]'>
-                more→
-              </button>
-            </li>
-            <li className='flex justify-between border-b-[1px] pb-2 px-2'>
-              <p>GitHub</p>
-              <button className='bg-white text-sm text-black px-2 rounded-[100px]'>
-                more→
-              </button>
-            </li>
-            <li className='flex justify-between border-b-[1px] pb-2 px-2'>
-              <p>Twitter</p>
-              <button className='bg-white text-sm text-black px-2 rounded-[100px]'>
-                more→
-              </button>
-            </li>
-            <button className='mt-12 bg-[#17afc6] text-white font-bold py-2 rounded-[100px] shadow-md w-[200px] mx-auto'>
-              仕事を依頼する
-            </button>
+            <SnsIcons />
+            <motion.button
+              className='flex mt-12 items-center justify-center gap-2 bg-[#17afc6] text-white px-8 py-4 rounded-md '
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              <p className='font-bold'>仕事を依頼する</p>
+              <FaArrowUpRightFromSquare />
+            </motion.button>
           </ul>
           <CloseButton setOpen={setOpen} />
         </motion.div>

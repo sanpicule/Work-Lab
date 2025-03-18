@@ -3,25 +3,25 @@ import { siteConfig } from '@/site.config'
 export const portfolioList = [
   {
     id: 'kikara',
-    title: 'Kikara: Next.jsで作製したホームページ',
+    title: 'Kikara',
     url: 'https://kikara-official.vercel.app/',
     image: '/portforio1.png',
   },
   {
     id: 'tinypost',
-    title: 'TinyPost: 簡易CMS',
+    title: 'TinyPost',
     url: 'https://tinypost-three.vercel.app/',
     image: '/portforio2.png',
   },
   {
     id: 'splink',
-    title: 'sp-link: React×Firebaseで作る投稿アプリ',
+    title: 'Splink',
     url: 'https://sp-link.vercel.app/',
     image: '/portforio3.png',
   },
   {
     id: 'postingprofile',
-    title: 'PostingProfile: このポートフォリオサイト',
+    title: 'Portfolio',
     url: 'https://notion-blog-gray-theta.vercel.app/',
     image: '/portforio4.png',
   },
