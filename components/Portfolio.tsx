@@ -6,6 +6,7 @@ import { portfolioList } from '@/utils/data'
 import { motion } from 'framer-motion'
 import useCustomAnimation from '@/hooks/useCustomAnimation'
 import SectionTitle from './SectionTitle'
+import { caveat } from '@/utils/font'
 
 function Portfolio() {
   const customAnimate = useCustomAnimation()
@@ -20,15 +21,16 @@ function Portfolio() {
           initial={customAnimate.scrollFadeInFromBottom.initial}
           whileInView={customAnimate.scrollFadeInFromBottom.whileInView}
           viewport={customAnimate.scrollFadeInFromBottom.viewport}
-          className='mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-12'
+          className='mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-24'
         >
-          {portfolioList.map((portfolio) => (
+          {portfolioList.map((portfolio, i) => (
             <div
               key={portfolio.id}
-              className='flex flex-col items-center justify-center gap-4 rounded-2xl text-white'
+              className='flex flex-col justify-center gap-2 rounded-2xl text-white'
             >
-              <Link href={portfolio.url} target='_blank'>
-                <div className='relative transition duration-500 w-full h-full cursor-pointer overflow-hidden hover:-translate-x-2 hover:-translate-y-2 hover:shadow-2xl rounded-md'>
+              <p className={`${caveat.className} text-4xl font-bold`}>{i + 1}. {portfolio.title}</p>
+              <Link href={portfolio.url} target='_blank' className='w-full h-full bg-slate-100 p-4 rounded-md'>
+                <div className='relative transition duration-500 w-full h-full cursor-pointer overflow-hidden hover:shadow-2xl rounded-md'>
                   <Image
                     src={portfolio.image}
                     alt=''
@@ -39,15 +41,14 @@ function Portfolio() {
                   <div className='absolute inset-0 bg-black opacity-0 hover:opacity-50 transition-opacity duration-300'></div>
                 </div>
               </Link>
-              <p className='text-sm'>{portfolio.title}</p>
-              <Link href={`/${portfolio.id}`} scroll={false}>
+              <Link href={`/${portfolio.id}`} scroll={false} className='text-center mt-4'>
                 <motion.button
-                  className='py-2 px-4 rounded-full cursor-pointer bg-white hover:shadow-[0px_0px_10px_0px_#17afc6]'
+                  className='py-2 px-8 rounded-md cursor-pointer bg-[#17afc6] hover:shadow-[0px_0px_10px_0px_#fff]'
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 >
-                  <p className='text-sm text-[#202022]'>詳細を見る</p>
+                  <p className='text-sm text-white font-bold'>詳細を見る</p>
                 </motion.button>
               </Link>
             </div>

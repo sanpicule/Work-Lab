@@ -1,5 +1,4 @@
 import type { GetStaticProps, NextPage } from 'next'
-import Layout from '@/components/Layout'
 import React from 'react'
 import { fetchPages } from '@/utils/notion'
 import { IndexProps } from '@/types/types'
@@ -10,7 +9,7 @@ import Profile from '@/components/Profile'
 import Hero from '@/components/Hero'
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { results } = await fetchPages({ maxRange: 3 })
+  const { results } = await fetchPages({ maxRange: 6 })
   return {
     props: {
       pages: results ? results : [],
@@ -21,13 +20,13 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const TopPage: NextPage<IndexProps> = ({ pages }) => {
   return (
-    <Layout>
+    <>
       <Hero />
       <Profile />
       <Skills />
       <HomeArticles pages={pages} />
       <Portfolio />
-    </Layout>
+    </>
   )
 }
 
