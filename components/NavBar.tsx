@@ -56,13 +56,12 @@ const NavBar = () => {
             <h4 className='mt-4 font-bold'>SNS</h4>
             <SnsIcons />
             <motion.button
-              className='flex mt-12 items-center justify-center gap-2 bg-[#17afc6] text-white px-8 py-4 rounded-md '
+              className='flex mt-12 items-center justify-center gap-2 bg-[#17afc6] text-white px-8 py-2 rounded-md '
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
               <p className='font-bold'>仕事を依頼する</p>
-              <FaArrowUpRightFromSquare />
             </motion.button>
           </ul>
           <CloseButton setOpen={setOpen} />

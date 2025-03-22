@@ -30,7 +30,7 @@ export const SnsIcons = () => {
         href='https://zenn.dev/sanpi34'
         target='_blank'
         rel='noopener noreferrer'
-        className='flex gap-2 items-center bg-white shadow-md py-1 px-2 md:px-4 rounded-md text-black hover:brightness-90 border'
+        className='flex gap-2 items-center bg-white py-1 px-2 md:px-4 rounded-md text-black hover:brightness-90'
       >
         <Image src='/logo-only.svg' width={25} height={25} alt='Zenn logo' />
         <p className='font-medium md:text-lg'>Zenn</p>
