@@ -12,7 +12,6 @@ const Card: FC<CardProps> = ({ page }) => {
   useEffect(() => {
   const fetchPhoto = async () => {
     const res = await getPhotoData()
-    console.log(res)
     setUrl(res)
   };
 
@@ -30,8 +29,8 @@ const Card: FC<CardProps> = ({ page }) => {
         href={`/articles/${getText(page.properties.slug.rich_text)}`}
         scroll={false}
       >
-        <div className='transition duration-200 flex flex-col border-2 border-[#d3d3d3] hover:border-[#17afc6] overflow-hidden bg-white w-full h-full rounded-2xl hover:brightness-90'>
-          <div className='w-full h-[150px] md:h-[120px]'>
+        <div className='transition duration-200 flex flex-col border-2 border-[#ececec] hover:border-[#17afc6] overflow-hidden bg-white w-full h-full rounded-2xl hover:brightness-90'>
+          <div className='w-full h-[100px] md:h-[120px]'>
             <Image
               className='object-cover h-full w-full'
               src={getCover(page.cover) || url}
@@ -42,14 +41,14 @@ const Card: FC<CardProps> = ({ page }) => {
             />
           </div>
           {/* title & date*/}
-          <div className='px-6 pt-4 text-start'>
-            <p>{getDate(page.properties.published.date)}</p>
-            <h4 className='text-[16px] font-bold'>
+          <div className='p-3 md:px-6 md:pt-4 text-start'>
+            <p className='text-xs text-gray-400'>{getDate(page.properties.published.date)}</p>
+            <p className='text-sm md:text-[16px] font-bold mt-2'>
               {getText(page.properties.name.title)}
-            </h4>
+            </p>
           </div>
           {/* tag */}
-          <div className='flex flex-wrap mt-4 px-2 pb-4'>
+          <div className='hidden md:flex flex-wrap mt-4 px-2 pb-4'>
             {getMultiSelect(page.properties.tags.multi_select).map(
               (tag, index) => (
                 <span

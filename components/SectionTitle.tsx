@@ -16,7 +16,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
       viewport={customAnimate.scrollFadeInFromTop.viewport}
       className='flex items-center gap-4'
     >
-      <p className={`${caveat.className} text-4xl md:text-6xl tracking-wider font-extralight`}>{title}</p>
+      <p className={`${caveat.className} text-6xl md:text-8xl tracking-wider font-extralight`}>{title}</p>
     </motion.div>
   )
 }
