@@ -4,11 +4,11 @@ import React from 'react'
 const Hamburger: React.FC<SetOpenTypes> = ({ setOpen }) => {
   return (
     <div
-      className='md:hidden w-full h-full p-4 rounded-md bg-[#2e2e2e] mt-4'
+      className='fixed md:hidden top-10 right-8'
       onClick={() => setOpen(true)}
     >
-      <span className='block w-6 h-[1px] rounded-sm bg-white'></span>
-      <span className='block w-6 h-[1px] rounded-sm bg-white mt-1.5'></span>
+      <span className='block w-8 h-[2px] rounded-md bg-white'></span>
+      <span className='block w-8 h-[2px] rounded-md bg-white mt-1.5'></span>
     </div>
   )
 }
