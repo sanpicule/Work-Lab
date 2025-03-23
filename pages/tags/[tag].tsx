@@ -3,6 +3,7 @@ import Card from '../../components/Card'
 import { Params, TagProps } from '../../types/types'
 import { fetchPages } from '../../utils/notion'
 import { getMultiSelect } from '../../utils/property'
+import { caveat } from '@/utils/font';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { results }: { results: Record<string, any>[] } = await fetchPages({})
@@ -42,9 +43,9 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
 const Tag: NextPage<TagProps> = ({ pages, tag }) => {
   return (
-    <div className='w-full py-12 px-8 md:px-20 max-w-6xl mt-[80px]'>
-      <p className='mb-8 text-5xl md:text-6xl'>{`#${tag}`}</p>
-      <div className='grid gap-2 md:gap-8 mt-10 grid-cols-2 md:grid-cols-3 w-full my-12'>
+    <div className='w-full h-auto my-24 md:mt-48 flex flex-col justify-center py-4 px-8 md:px-20 max-w-6xl'>
+      <p className={`${caveat.className} text-5xl md:text-8xl tracking-wider font-extralight`}>{`#${tag}`}</p>
+      <div className='grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-12 lg:gap-10 mt-8 w-full'>
         {/* Card */}
         {pages.map((page, index) => (
           <Card key={index} page={page} />
