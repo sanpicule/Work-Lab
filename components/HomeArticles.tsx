@@ -11,7 +11,7 @@ import SectionTitle from './SectionTitle'
 const HomeArticles: NextPage<IndexProps> = ({ pages }) => {
   const customAnimate = useCustomAnimation()
   return (
-    <div className='w-full h-auto flex flex-col justify-center py-24 px-4 md:px-20 md:py-40 max-w-6xl'>
+    <div className='w-full h-auto flex flex-col justify-center py-24 px-8 md:px-20 md:py-40 max-w-6xl'>
       <div className='border-b-2 border-[#17afc6]'>
         <SectionTitle title={siteConfig.articleList} />
       </div>
@@ -22,7 +22,7 @@ const HomeArticles: NextPage<IndexProps> = ({ pages }) => {
         viewport={customAnimate.scrollFadeInFromBottom.viewport}
         className='text-center mt-8 md:mt-12'
       >
-        <div className='grid grid-cols-2 md:grid-cols-3 w-full gap-3 md:gap-8'>
+        <div className='grid grid-cols-2 md:grid-cols-3 w-full gap-2 md:gap-8'>
           {/* Card */}
           {pages.map((page, index) => (
             <Card key={index} page={page} />

@@ -6,8 +6,11 @@ import Hamburger from './HamburgerMenu'
 import CloseButton from './MobileCloseButton'
 import { motion, useScroll } from 'framer-motion'
 import useCustomAnimation from '@/hooks/useCustomAnimation'
-import { FaArrowUpRightFromSquare } from 'react-icons/fa6'
 import { SnsIcons } from './SnsIcons'
+import InstagramIcon from '@mui/icons-material/Instagram';
+import XIcon from '@mui/icons-material/X';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import Link from 'next/link'
 
 const NavBar = () => {
   const [open, setOpen] = useState(false)
@@ -18,11 +21,11 @@ const NavBar = () => {
     <>
       <motion.div
         style={{ scaleX: scrollYProgress }}
-        className='z-50 t-0 l-0 r-0 h-1 w-full origin-[0%] fixed bg-gradient-to-r from-green-300 to-green-800'
+        className='z-50 t-0 l-0 r-0 h-2 w-full origin-[0%] fixed bg-gradient-to-r from-green-300 to-green-800'
       />
-      <nav className='fixed z-10 w-full flex flex-wrap items-center justify-between navbar navbar-expand-lg navbar-light md:bg-white md:shadow-md'>
-        <div className='ml-auto md:mr-4 rounded-xl w-fit h-full flex items-center gap-8 pr-4'>
-          <ul className='flex items-center justify-end gap-8 ml-auto h-[60px]'>
+      <nav className='fixed z-10 w-auto top-[5%] right-[5%] navbar navbar-expand-lg navbar-light'>
+        <div className='ml-auto md:mr-4 rounded-xl w-full h-full flex items-center gap-8 pr-4'>
+          <ul className='flex flex-col gap-4'>
             {navMenuList.map((navMenu) => (
               <NavNameItem
                 key={navMenu.id}
@@ -30,10 +33,35 @@ const NavBar = () => {
                 menuName={navMenu.menuName}
               />
             ))}
-            <button className='hidden md:flex items-center gap-2 bg-[#17afc6] text-white px-4 py-2 rounded-md transition font-bold hover:opacity-80'>
-              <p className='text-sm'>仕事を依頼する</p>
-            </button>
           </ul>
+          <div className='flex flex-col items-center gap-2 md:gap-4 fixed -translate-y-1/2 top-1/2 right-1 md:right-8'>
+            <p className='-rotate-90 text-sm'>SNS</p>
+            <span className='w-[1px] h-4 md:h-8 bg-white' />
+            <a
+              href='https://github.com/sanpicule?tab=repositories'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <GitHubIcon fontSize='small' />
+            </a>
+            <a
+              href='https://www.instagram.com/sanp___ery/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <InstagramIcon fontSize='small' />
+            </a>
+            <a
+              href='https://x.com/sanpitech240?s=21'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <XIcon fontSize='small' />
+            </a>
+          </div>
+          <Link href='/' className='fixed top-[5%] left-[8%] tracking-widest text-md md:text-2xl'>
+            SANSHIRO<br></br>HIKAWA
+          </Link>
           <Hamburger setOpen={setOpen} />
         </div>
         {/* スマホ時のメニュー */}
