@@ -25,7 +25,7 @@ export const Skills = () => {
 
   return (
     <div className='w-full'>
-      <div className='max-w-6xl mx-auto w-full flex flex-col rounded-[40px] pt-24 md:py-40 px-8 md:px-20 justify-center'>
+      <div className='max-w-6xl mx-auto w-full flex flex-col pt-24 md:py-40 px-8 md:px-20 justify-center'>
         <div className='text-white border-b-2 border-[#17afc6]'>
           <SectionTitle title={siteConfig.language} />
         </div>

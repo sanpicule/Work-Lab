@@ -23,9 +23,9 @@ const TopPage: NextPage<IndexProps> = ({ pages }) => {
     <>
       <Hero />
       <Profile />
+      <Portfolio />
       <Skills />
       <HomeArticles pages={pages} />
-      <Portfolio />
     </>
   )
 }
