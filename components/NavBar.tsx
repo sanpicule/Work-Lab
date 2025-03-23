@@ -83,14 +83,20 @@ const NavBar = () => {
             ))}
             <h4 className='mt-4 font-bold'>SNS</h4>
             <SnsIcons />
-            <motion.button
-              className='flex mt-12 items-center justify-center gap-2 bg-[#17afc6] text-white px-8 py-2 rounded-md '
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-            >
-              <p className='font-bold'>仕事を依頼する</p>
-            </motion.button>
+            <h4 className='mt-8 font-bold'>無料見積もり！</h4>
+            <div className='flex flex-col gap-2 mt-2 pl-2'>
+              <p className='text-sm'>無料でサイト作成の見積もりを行っています。</p>
+              <a href='https://docs.google.com/forms/d/e/1FAIpQLSfBmmCi_30buJqMOBPWH8byvqZEkDziPoSv1I3l-rLdJ-WzZw/viewform?usp=dialog' target='_blank'>
+                <motion.button
+                  className='flex items-center justify-center gap-2 bg-[#17afc6] text-white px-8 py-2 rounded-md '
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                >
+                  <p className='font-bold'>見積もりする</p>
+                </motion.button>
+              </a>
+            </div>
           </ul>
           <CloseButton setOpen={setOpen} />
         </motion.div>
