@@ -47,15 +47,17 @@ const Hero = () => {
           </h1>
           {/* TODO リンクは後で設定する */}
           <div className='hidden md:flex flex-col md:flex-row justify-center gap-8 mt-8'>
-            <motion.button
-              className='flex items-center justify-center gap-2 bg-[#17afc6] text-white px-6 py-2 rounded-md '
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-            >
-              <p className='font-bold'>仕事を依頼する</p>
-              <FaArrowUpRightFromSquare />
-            </motion.button>
+            <a href='https://docs.google.com/forms/d/e/1FAIpQLSfBmmCi_30buJqMOBPWH8byvqZEkDziPoSv1I3l-rLdJ-WzZw/viewform?usp=dialog' target='_blank' rel='noreferrer'>
+              <motion.button
+                className='flex items-center justify-center gap-2 bg-[#17afc6] text-white px-6 py-2 rounded-md '
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              >
+                <p className='font-bold'>見積もりする</p>
+                <FaArrowUpRightFromSquare />
+              </motion.button>
+            </a>
             <motion.button
               className='bg-white text-slate-800 px-6 py-2 rounded-md font-bold'
               whileHover={{ scale: 1.1 }}

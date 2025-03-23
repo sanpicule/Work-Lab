@@ -11,8 +11,8 @@ import { caveat } from '@/utils/font'
 function Portfolio() {
   const customAnimate = useCustomAnimation()
   return (
-    <div className='w-full mt-4 py-20'>
-      <div className='max-w-6xl mx-auto w-full h-auto flex flex-col rounded-[40px] px-8 md:py-40 md:px-20'>
+    <div className='w-full'>
+      <div className='max-w-6xl mx-auto w-full h-auto flex flex-col rounded-[40px] pt-24 px-8 md:py-40 md:px-20'>
         <div className='text-white border-b-2 border-[#17afc6]'>
           <SectionTitle title={siteConfig.portfolio} />
         </div>
