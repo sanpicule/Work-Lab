@@ -1,6 +1,5 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Card from '../../components/Card'
-import Layout from '../../components/Layout'
 import { Params, TagProps } from '../../types/types'
 import { fetchPages } from '../../utils/notion'
 import { getMultiSelect } from '../../utils/property'
@@ -43,17 +42,15 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
 const Tag: NextPage<TagProps> = ({ pages, tag }) => {
   return (
-    <Layout>
-      <div className='w-full py-12 px-8 md:px-20 max-w-6xl mt-[80px]'>
-        <p className='mb-8 text-6xl'>{`#${tag}`}</p>
-        <div className='grid gap-8 mt-10 grid-cols-1 md:grid-cols-3 w-full my-12'>
-          {/* Card */}
-          {pages.map((page, index) => (
-            <Card key={index} page={page} />
-          ))}
-        </div>
+    <div className='w-full py-12 px-8 md:px-20 max-w-6xl mt-[80px]'>
+      <p className='mb-8 text-5xl md:text-6xl'>{`#${tag}`}</p>
+      <div className='grid gap-2 md:gap-8 mt-10 grid-cols-2 md:grid-cols-3 w-full my-12'>
+        {/* Card */}
+        {pages.map((page, index) => (
+          <Card key={index} page={page} />
+        ))}
       </div>
-    </Layout>
+    </div>
   )
 }
 
