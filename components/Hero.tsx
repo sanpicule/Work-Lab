@@ -16,15 +16,6 @@ const Hero = () => {
   return (
     <div className='flex w-full'>
       <div className='hidden relative h-screen w-[5%] overflow-hidden md:flex items-center justify-center'>
-        <motion.p
-          className='absolute text-6xl font-thin'
-          initial={{ y: '-200%' }}
-          animate={{ y: '200%' }}
-          transition={{ repeat: Infinity, duration: 8, ease: 'linear' }}
-          style={{ writingMode: 'vertical-rl', transform: 'rotate(-90deg)' }}
-        >
-          Sanshiro Portfolio
-        </motion.p>
       </div>
       <div className='relative h-[100lvh] w-full md:w-[90%]'>
         <div ref={ref} className='h-[100lvh] w-full overflow-hidden'>
@@ -45,28 +36,6 @@ const Hero = () => {
           >
             Portfolio
           </h1>
-          {/* TODO リンクは後で設定する */}
-          <div className='hidden md:flex flex-col md:flex-row justify-center gap-8 mt-8'>
-            <a href='https://docs.google.com/forms/d/e/1FAIpQLSfBmmCi_30buJqMOBPWH8byvqZEkDziPoSv1I3l-rLdJ-WzZw/viewform?usp=dialog' target='_blank' rel='noreferrer'>
-              <motion.button
-                className='flex items-center justify-center gap-2 bg-[#17afc6] text-white px-6 py-2 rounded-md '
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-              >
-                <p className='font-bold'>見積もりする</p>
-                <FaArrowUpRightFromSquare />
-              </motion.button>
-            </a>
-            <motion.button
-              className='bg-white text-slate-800 px-6 py-2 rounded-md font-bold'
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-            >
-              実績を見る
-            </motion.button>
-          </div>
         </div>
       </div>
       <div className='hidden md:flex flex-col items-center justify-center w-[5%] h-screen gap-4'>
