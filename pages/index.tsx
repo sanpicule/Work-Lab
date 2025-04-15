@@ -9,7 +9,7 @@ import Profile from '@/components/Profile'
 import Hero from '@/components/Hero'
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { results } = await fetchPages({ maxRange: 6 })
+  const { results } = await fetchPages({ maxRange: 4 })
   return {
     props: {
       pages: results ? results : [],

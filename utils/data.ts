@@ -5,25 +5,25 @@ export const portfolioList = [
     id: 'kikara',
     title: 'Kikara',
     url: 'https://kikara-official.vercel.app/',
-    image: '/portforio1.png',
+    image: '/portfolio_kikara.png',
   },
   {
     id: 'tinypost',
     title: 'TinyPost',
     url: 'https://tinypost-three.vercel.app/',
-    image: '/portforio2.png',
+    image: '/portfolio_tinypost.png',
   },
   {
     id: 'splink',
     title: 'Splink',
     url: 'https://sp-link.vercel.app/',
-    image: '/portforio3.png',
+    image: '/portfolio_splink.png',
   },
   {
     id: 'postingprofile',
     title: 'Portfolio',
     url: 'https://notion-blog-gray-theta.vercel.app/',
-    image: '/portforio4.png',
+    image: '/portfolio_me.png',
   },
 ]
 

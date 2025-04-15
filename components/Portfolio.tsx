@@ -7,30 +7,29 @@ import { motion } from 'framer-motion'
 import useCustomAnimation from '@/hooks/useCustomAnimation'
 import SectionTitle from './SectionTitle'
 import { caveat } from '@/utils/font'
+import ClickHereButton from './ClickHereButton'
 
 function Portfolio() {
   const customAnimate = useCustomAnimation()
   return (
-    <div className='w-full'>
-      <div className='max-w-6xl mx-auto w-full h-auto flex flex-col rounded-[40px] pt-24 px-8 md:py-40 md:px-20'>
-        <div className='text-white border-b-2 border-[#17afc6]'>
-          <SectionTitle title={siteConfig.portfolio} />
-        </div>
+    <div className='w-full bg-[#eee]'>
+      <div className='w-[90%] md:w-full py-16 md:py-24 flex flex-col justify-center px-4 sm:px-6 md:px-10 lg:px-20 md:max-w-7xl mx-auto'>
+        <SectionTitle title={siteConfig.portfolio} color='[#2e2e2e]' />
         <motion.div
           variants={customAnimate.scrollFadeInFromBottom}
           initial={customAnimate.scrollFadeInFromBottom.initial}
           whileInView={customAnimate.scrollFadeInFromBottom.whileInView}
           viewport={customAnimate.scrollFadeInFromBottom.viewport}
-          className='mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-24'
+          className='mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24'
         >
           {portfolioList.map((portfolio, i) => (
             <div
               key={portfolio.id}
-              className='flex flex-col justify-center gap-2 rounded-2xl text-white'
+              className='flex flex-col justify-center gap-2 md:p-12 rounded-2xl text-[#2e2e2e]'
             >
               <p className={`${caveat.className} text-4xl font-bold`}>{i + 1}. {portfolio.title}</p>
-              <Link href={portfolio.url} target='_blank' className='w-full h-full bg-slate-100 p-4 rounded-md'>
-                <div className='relative transition duration-500 w-full h-full cursor-pointer overflow-hidden hover:shadow-2xl rounded-md'>
+              <Link href={portfolio.url} target='_blank' className='w-full h-full p-4 rounded-md'>
+                <div className='relative transition duration-500 w-full h-full cursor-pointer overflow-hidden rounded-md'>
                   <Image
                     src={portfolio.image}
                     alt=''
@@ -38,19 +37,13 @@ function Portfolio() {
                     height={300}
                     className='w-full h-full object-cover'
                   />
-                  <div className='absolute inset-0 bg-black opacity-0 hover:opacity-50 transition-opacity duration-300'></div>
                 </div>
               </Link>
-              <Link href={`/${portfolio.id}`} scroll={false} className='text-center mt-4'>
-                <motion.button
-                  className='py-2 px-8 rounded-md cursor-pointer bg-[#17afc6] hover:shadow-[0px_0px_10px_0px_#fff]'
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-                >
-                  <p className='text-sm text-white font-bold'>詳細を見る</p>
-                </motion.button>
-              </Link>
+              <div>
+                <Link href={`/${portfolio.id}`} scroll={false} className='text-center mt-4'>
+                  <ClickHereButton text={`${portfolio.title}の詳細を見る`} bgcolor={'white'} />
+                </Link>
+              </div>
             </div>
           ))}
         </motion.div>

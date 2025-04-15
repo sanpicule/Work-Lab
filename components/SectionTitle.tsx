@@ -1,12 +1,13 @@
 import useCustomAnimation from '@/hooks/useCustomAnimation'
-import { caveat } from '@/utils/font';
+import { caveat } from '@/utils/font'
 import { motion } from 'framer-motion'
 
 type SectionTitleProps = {
-  title: string;
-};
+  title: string,
+  color?: string,
+}
 
-const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
+const SectionTitle: React.FC<SectionTitleProps> = ({ title, color = 'white' }) => {
   const customAnimate = useCustomAnimation()
   return (
     <motion.div
@@ -14,9 +15,12 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
       initial={customAnimate.scrollFadeInFromTop.initial}
       whileInView={customAnimate.scrollFadeInFromTop.whileInView}
       viewport={customAnimate.scrollFadeInFromTop.viewport}
-      className='flex items-center gap-4'
+      className='flex items-center gap-4 w-full'
     >
-      <p className={`${caveat.className} text-5xl md:text-8xl tracking-wider font-extralight`}>{title}</p>
+      <h2 className={`text-lg tracking-widest font-semibold mb-4 md:mb-6 whitespace-nowrap text-${color}`}>
+        {title}
+      </h2>
+      <span className={`flex-1 h-[2px] bg-${color} mb-4 md:mb-6`}></span>
     </motion.div>
   )
 }
