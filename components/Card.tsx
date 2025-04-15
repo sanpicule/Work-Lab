@@ -31,8 +31,8 @@ const Card: FC<CardProps> = ({ page }) => {
             href={`/articles/${getText(page.properties.slug.rich_text)}`}
             scroll={false}
           >
-            <div className='transition duration-200 flex flex-col border-2 border-[#465656] md:hover:border-[#17afc6] overflow-hidden bg-white w-full h-full rounded-2xl hover:brightness-90'>
-              <div className='w-full h-[75px] md:h-[120px]'>
+            <div className='transition duration-200 flex flex-col rounded-md md:hover:shadow-[0px_0px_10px_0px_#efbebe] h-full p-4 shadow-2xl'>
+              {/* <div className='w-full h-[75px] md:h-[120px]'>
                 <Image
                   className='object-cover h-full w-full'
                   src={getCover(page.cover) ?? url}
@@ -41,16 +41,16 @@ const Card: FC<CardProps> = ({ page }) => {
                   height={225}
                   quality={30}
                 />
-              </div>
+              </div> */}
               {/* title & date*/}
-              <div className='p-3 md:px-6 md:pt-4 text-start'>
+              <div className='text-start'>
                 <p className='text-xs text-gray-400'>{getDate(page.properties.published.date)}</p>
-                <p className='text-sm md:text-[16px] font-bold mt-2 text-[#464545]'>
+                <p className='text-sm md:text-[16px] font-bold mt-2 text-[#eee]'>
                   {getText(page.properties.name.title)}
                 </p>
               </div>
               {/* tag */}
-              <div className='hidden md:flex flex-wrap mt-4 px-2 pb-4'>
+              <div className='flex flex-wrap mt-4 pb-4'>
                 {getMultiSelect(page.properties.tags.multi_select).map(
                   (tag, index) => (
                     <span
