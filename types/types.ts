@@ -33,6 +33,7 @@ export type MobileNavItemProps = {
 
 export type SetOpenTypes = {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
+  open?: boolean
 }
 
 export type PortfolioCardProps = {

@@ -14,13 +14,7 @@ export const portfolioList = [
     image: '/portfolio_tinypost.png',
   },
   {
-    id: 'splink',
-    title: 'Splink',
-    url: 'https://sp-link.vercel.app/',
-    image: '/portfolio_splink.png',
-  },
-  {
-    id: 'postingprofile',
+    id: 'portfolio',
     title: 'Portfolio',
     url: 'https://notion-blog-gray-theta.vercel.app/',
     image: '/portfolio_me.png',
@@ -36,6 +30,21 @@ export const navMenuList = [
   {
     id: 2,
     menuName: `${siteConfig.articleList}`,
+    pathName: '/articles',
+  },
+  {
+    id: 3,
+    menuName: 'Kikara',
+    pathName: '/kikara',
+  },
+  {
+    id: 4,
+    menuName: 'TinyPost',
+    pathName: '/articles',
+  },
+  {
+    id: 5,
+    menuName: 'My Portfolio',
     pathName: '/articles',
   },
 ]
