@@ -38,6 +38,21 @@ export const navMenuList = [
     menuName: `${siteConfig.articleList}`,
     pathName: '/articles',
   },
+  {
+    id: 3,
+    menuName: 'Kikara',
+    pathName: '/kikara',
+  },
+  {
+    id: 4,
+    menuName: 'TinyPost',
+    pathName: '/articles',
+  },
+  {
+    id: 5,
+    menuName: 'My Portfolio',
+    pathName: '/articles',
+  },
 ]
 
 export const skillList = [
