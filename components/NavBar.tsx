@@ -160,7 +160,7 @@ const NavBar = () => {
         >
           <Link
             href='/'
-            className='fixed top-[5%] left-[5%] tracking-widest text-md md:text-2xl font-bold'
+            className='tracking-widest text-md md:text-2xl font-bold'
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
