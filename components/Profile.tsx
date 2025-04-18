@@ -33,14 +33,14 @@ const Profile = () => {
   ]
 
   return (
-    <div className='w-[90%] md:w-full py-16 md:py-24 flex flex-col justify-center px-4 sm:px-6 md:px-10 lg:px-20 md:max-w-7xl mx-auto'>
+    <div className='w-[80%] py-16 md:py-24 flex flex-col justify-center px-4 sm:px-6 md:px-10 lg:px-20 md:max-w-8xl mx-auto'>
       <SectionTitle title={siteConfig.profile} />
       <motion.div
         variants={customAnimate.scrollFadeInFromBottom}
         initial={customAnimate.scrollFadeInFromBottom.initial}
         whileInView={customAnimate.scrollFadeInFromBottom.whileInView}
         viewport={customAnimate.scrollFadeInFromBottom.viewport}
-        className='grid w-full mt-6 md:mt-8 lg:mt-12 gap-6 md:gap-8 lg:gap-12 items-start justify-between grid-cols-1 md:grid-cols-3'
+        className='grid w-full mt-6 md:mt-8 lg:mt-12 gap-6 md:gap-8 lg:gap-24 items-start justify-between grid-cols-1 md:grid-cols-3'
       >
         {/* 1カラム目：画像 */}
         <div className='flex flex-row md:flex-col items-start md:items-center justify-start md:justify-center gap-6 md:gap-4'>
@@ -119,7 +119,7 @@ const Profile = () => {
           </h2>
           <div className='grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 text-left'>
             <div>
-              <p className='text-sm md:text-base font-bold'>FrontEnd</p>
+              <p className='text-sm md:text-base font-bold'>Frontend</p>
               <ul className='list-disc mt-1 md:mt-2 ml-4 md:ml-6 space-y-1 md:space-y-2 text-xs sm:text-sm'>
                 <li>React</li>
                 <li>Next.js</li>
@@ -132,7 +132,7 @@ const Profile = () => {
               </ul>
             </div>
             <div>
-              <p className='text-sm md:text-base font-bold'>BackEnd</p>
+              <p className='text-sm md:text-base font-bold'>Backend</p>
               <ul className='list-disc mt-1 md:mt-2 ml-4 md:ml-6 space-y-1 md:space-y-2 text-xs sm:text-sm'>
                 <li>Node.js</li>
                 <li>Express</li>

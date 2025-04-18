@@ -9,7 +9,7 @@ export const Skills = () => {
   const customAnimate = useCustomAnimation()
 
   return (
-    <div className='w-[90%] md:w-full py-16 md:py-24 flex flex-col justify-center px-4 sm:px-6 md:px-10 lg:px-20 md:max-w-7xl mx-auto'>
+    <div className='w-[80%] py-16 md:py-24 flex flex-col justify-center px-4 sm:px-6 md:px-10 lg:px-20 md:max-w-8xl mx-auto'>
       <SectionTitle title={siteConfig.language} />
       <motion.div
         variants={customAnimate.scrollFadeInFromBottom}
@@ -18,7 +18,7 @@ export const Skills = () => {
         viewport={customAnimate.scrollFadeInFromBottom.viewport}
         className='grid grid-cols-1 md:grid-cols-1 gap-12 mt-8 md:mt-12'
       >
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-24 px-2 text-[#eee] mx-auto'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 px-2 text-[#eee] mx-auto'>
           <div className='w-full aspect-square'>
             <Image
               className='object-cover h-full w-full brightness-50 hover:brightness-100 duration-300'

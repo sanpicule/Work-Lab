@@ -1,5 +1,4 @@
 import useCustomAnimation from '@/hooks/useCustomAnimation'
-import { caveat } from '@/utils/font'
 import { motion } from 'framer-motion'
 
 type SectionTitleProps = {
@@ -17,10 +16,10 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title, color = 'white' }) =
       viewport={customAnimate.scrollFadeInFromTop.viewport}
       className='flex items-center gap-4 w-full'
     >
-      <h2 className={`text-lg tracking-widest font-semibold mb-4 md:mb-6 whitespace-nowrap text-${color}`}>
+      <h2 className={`text-lg lg:text-xl tracking-[1rem] font-semibold mb-4 md:mb-6 whitespace-nowrap ${color === 'black' ? 'text-[#2e2e2e]' : 'text-[#eee]'}`}>
         {title}
       </h2>
-      <span className={`flex-1 h-[2px] bg-${color} mb-4 md:mb-6`}></span>
+      <span className={`flex-1 h-[1px] ${color === 'black' ? 'bg-[#2e2e2e]' : 'bg-[#eee]'} mb-4 md:mb-6`}></span>
     </motion.div>
   )
 }

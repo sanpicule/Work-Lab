@@ -6,7 +6,7 @@ import { caveat } from '@/utils/font';
 
 const Footer = () => {
   return (
-    <footer className='text-center bg-gray-900 text-white w-screen block p-4'>
+    <footer className='text-center bg-gray-900 text-white block p-4'>
       <h1 className={`${caveat.className} text-start`}>Portfolio</h1>
       <div className='mt-4'><SnsIcons /></div>
       {/* copyright */}

@@ -10,7 +10,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className='body relative w-full'>
-      <div className='flex flex-col w-screen'>
+      <div className='flex flex-col'>
         <NavBar />
         <AnimatePresence mode='wait'>
           <motion.div
@@ -19,7 +19,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             animate={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
             exit={{ opacity: 0, scale: 1, rotateX: -5, y: -10 }}
             transition={{ duration: 0.5, ease: [0.4, 0.0, 0.2, 1] }}
-            className='w-screen min-h-screen bg-[#2e2e2e] shadow-lg'
+            className='min-h-screen bg-[#2e2e2e] shadow-lg'
           >
             <main>{children}</main>
           </motion.div>
