@@ -10,6 +10,26 @@ import {
 } from '@mui/icons-material'
 import Link from 'next/link'
 
+const containerVariants = {
+  hidden: {
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1, // 👈 消えるときも順番に消す
+    },
+  },
+  visible: {
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: 1,
+    },
+  },
+}
+
+const letterVariants = {
+  hidden: { opacity: 0, x: -10 },
+  visible: { opacity: 1, x: 0 },
+}
+
 const NavBar = () => {
   const [open, setOpen] = useState(false)
   const { scrollYProgress } = useScroll()
@@ -124,6 +144,7 @@ const NavBar = () => {
       },
     },
   }
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
     <>
@@ -139,17 +160,31 @@ const NavBar = () => {
         >
           <Link
             href='/'
-            className='tracking-widest text-lg md:text-2xl font-semibold text-white'
+            className='fixed top-[5%] left-[5%] tracking-widest text-md md:text-2xl font-bold'
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
-            <motion.span
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-            >
-              SANSHIRO
-              <br />
-              HIKAWA
-            </motion.span>
+            <div className='flex'>
+              {/* Hは常に表示 */}
+              <span>H</span>
+              {/* IKAWA部分だけアニメーション対象 */}
+              <motion.div
+                className='flex overflow-hidden'
+                variants={containerVariants}
+                initial='hidden'
+                animate={isHovered ? 'visible' : 'hidden'}
+              >
+                {'IKAWA'.split('').map((char, index) => (
+                  <motion.span
+                    key={index}
+                    variants={letterVariants}
+                    className='inline-block'
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </motion.div>
+            </div>
           </Link>
         </motion.div>
 

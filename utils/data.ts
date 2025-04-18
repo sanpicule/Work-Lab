@@ -14,13 +14,7 @@ export const portfolioList = [
     image: '/portfolio_tinypost.png',
   },
   {
-    id: 'splink',
-    title: 'Splink',
-    url: 'https://sp-link.vercel.app/',
-    image: '/portfolio_splink.png',
-  },
-  {
-    id: 'postingprofile',
+    id: 'portfolio',
     title: 'Portfolio',
     url: 'https://notion-blog-gray-theta.vercel.app/',
     image: '/portfolio_me.png',
