@@ -35,7 +35,7 @@ const Card: FC<CardProps> = ({ page }) => {
               <div className='absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 opacity-0 blur-2xl rounded-md transition-opacity duration-300 group-hover:opacity-60 pointer-events-none'></div>
 
               {/* コンテンツ本体 */}
-              <div className='relative z-10 transition duration-200 flex flex-col rounded-md h-full p-4 shadow-2xl bg-[#1e1e1e]'>
+              <div className='relative z-10 transition duration-200 flex flex-col rounded-2xl h-full p-4 shadow-2xl bg-[#1e1e1e]'>
                 <div className='text-start'>
                   <p className='text-xs text-gray-400'>
                     {getDate(page.properties.published.date)}
@@ -45,7 +45,7 @@ const Card: FC<CardProps> = ({ page }) => {
                   </p>
                 </div>
                 {/* tag */}
-                <div className='flex flex-wrap mt-4 pb-4'>
+                <div className='flex flex-wrap mt-4'>
                   {getMultiSelect(page.properties.tags.multi_select).map(
                     (tag, index) => (
                       <span

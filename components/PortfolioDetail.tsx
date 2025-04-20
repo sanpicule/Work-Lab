@@ -41,7 +41,7 @@ const PortfolioDetail = ({
   summary,
 }: PortfolioDetailProps) => {
   return (
-    <div className='w-full mx-auto mt-32 px-8 md:px-20 max-w-6xl'>
+    <div className='w-[80%] md:w-[60%] mx-auto mt-32 max-w-6xl'>
       {/* Header Section */}
       <div className='relative'>
         <div className='flex flex-col justify-start items-start text-start text-[#eee] mb-8'>

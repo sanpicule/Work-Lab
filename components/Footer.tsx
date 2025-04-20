@@ -18,7 +18,7 @@ const Footer = () => {
 
   return (
     <footer className='bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12 px-6'>
-      <div className='container mx-auto max-w-6xl'>
+      <div className='container mx-auto max-w-6xl w-[80%] md:w-[60%]'>
         {/* Top section with logo and social icons */}
         <div className='flex flex-col md:flex-row items-center md:items-start justify-between mb-10 border-b border-gray-700 pb-8'>
           {/* Left side - Logo and tagline */}
