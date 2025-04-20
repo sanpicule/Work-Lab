@@ -201,7 +201,7 @@ const NavBar = () => {
         </Link>
 
         {/* ハンバーガーメニュー - 表示条件修正 */}
-        <AnimatePresence mode='wait'>
+        <AnimatePresence>
           {!open && (
             <motion.div
               key='hamburger'

@@ -77,7 +77,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className='body relative w-full'>
-      <AnimatePresence mode='wait'>
+      <AnimatePresence>
         {/* ページ遷移オーバーレイ */}
         <motion.div
           key={`overlay-${router.pathname}`}
