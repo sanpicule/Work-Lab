@@ -26,7 +26,7 @@ const Home: NextPage<IndexProps> = ({ pages }) => {
     <>
       <div className='w-full h-auto my-36 md:my-48 flex flex-col mx-auto justify-center py-4 px-8 md:px-20 max-w-6xl'>
         <SectionTitle title={siteConfig.articleList} />
-        <div className='grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-12 lg:gap-10 mt-8 w-full'>
+        <div className='grid grid-cols-1 gap-3 md:gap-12 lg:gap-10 mt-8 w-full'>
           {/* Card */}
           {pages.map((page, index) => (
             <Card key={index} page={page} />
