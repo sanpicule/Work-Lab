@@ -13,11 +13,15 @@ const Hero = () => {
   })
   const scale = useTransform(scrollYProgress, [0, 1], [1, 4])
   return (
-    <div className='flex w-full h-lvh'>
+    <div className='flex w-full'>
       <div className='relative overflow-hidden w-full mx-auto md:w-full'>
         <div ref={ref}>
-          <motion.div style={{ scale }} className='h-lvh brightness-50'>
+          <motion.div
+            className='h-[600px] md:h-screen brightness-50'
+            style={{ scale }}
+          >
             <Image
+              priority
               className='mx-auto object-cover w-full h-full'
               src='/hero.jpg'
               alt=''
@@ -34,7 +38,7 @@ const Hero = () => {
             Portfolio
           </h1>
           <p className='text-start mt-2 text-xl md:text-4xl font-thin'>
-            To be an engineer <br></br>who supports the acceleration of business
+            To be an engineer <br /> who supports the acceleration of business
           </p>
         </div>
       </div>
