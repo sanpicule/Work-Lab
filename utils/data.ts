@@ -40,12 +40,12 @@ export const navMenuList = [
   {
     id: 4,
     menuName: 'TinyPost',
-    pathName: '/articles',
+    pathName: '/tinypost',
   },
   {
     id: 5,
     menuName: 'My Portfolio',
-    pathName: '/articles',
+    pathName: '/portfolio',
   },
 ]
 

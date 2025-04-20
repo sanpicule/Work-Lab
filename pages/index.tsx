@@ -2,7 +2,6 @@ import type { GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import { fetchPages } from '@/utils/notion'
 import { IndexProps } from '@/types/types'
-import { Skills } from '@/components/Skills'
 import Portfolio from '@/components/Portfolio'
 import HomeArticles from '@/components/HomeArticles'
 import Profile from '@/components/Profile'
@@ -24,7 +23,6 @@ const TopPage: NextPage<IndexProps> = ({ pages }) => {
       <Hero />
       <Profile />
       <Portfolio />
-      <Skills />
       <HomeArticles pages={pages} />
     </>
   )

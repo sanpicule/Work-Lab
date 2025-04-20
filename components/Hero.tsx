@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { FaArrowUpRightFromSquare } from 'react-icons/fa6'
 import { caveat } from '@/utils/font'
 
 const Hero = () => {
@@ -14,14 +13,12 @@ const Hero = () => {
   })
   const scale = useTransform(scrollYProgress, [0, 1], [1, 4])
   return (
-    <div className='flex w-full'>
-      <div className='hidden relative h-screen w-[5%] overflow-hidden md:flex items-center justify-center'>
-      </div>
-      <div className='relative h-[100lvh] w-full md:w-[90%]'>
-        <div ref={ref} className='h-[100lvh] w-full overflow-hidden'>
-          <motion.div style={{ scale }} className='h-[100lvh] w-full'>
+    <div className='flex w-full h-[100svh]'>
+      <div className='relative overflow-hidden w-full mx-auto md:w-full'>
+        <div ref={ref}>
+          <motion.div style={{ scale }} className='h-[100svh] brightness-50'>
             <Image
-              className='mx-auto object-cover brightness-50 h-[100lvh] w-full'
+              className='mx-auto object-cover w-full h-full'
               src='/hero.jpg'
               alt=''
               width={2000}
@@ -37,8 +34,6 @@ const Hero = () => {
             Portfolio
           </h1>
         </div>
-      </div>
-      <div className='hidden md:flex flex-col items-center justify-center w-[5%] h-screen gap-4'>
       </div>
     </div>
   )
