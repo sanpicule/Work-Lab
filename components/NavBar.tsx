@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+'use client'
+
+import React, { useEffect, useState } from 'react'
 import { navMenuList } from '@/utils/data'
 import Hamburger from './HamburgerMenu'
 import CloseButton from './MobileCloseButton'
@@ -34,6 +36,14 @@ const NavBar = () => {
   const [open, setOpen] = useState(false)
   const { scrollYProgress } = useScroll()
   const [isHovered, setIsHovered] = useState(false)
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+  }, [open])
 
   // ハンバーガーメニューのアニメーション（表示速度を上げる）
   const hamburgerVariants = {
@@ -263,16 +273,6 @@ const NavBar = () => {
         >
           {open && (
             <>
-              {/* メニュー背景 */}
-              <motion.div
-                key='menu-bg'
-                initial='closed'
-                animate='open'
-                exit='closed'
-                variants={bgVariants}
-                className='fixed top-0 right-0 w-full h-screen bg-black z-40'
-              />
-
               {/* メニューコンテンツ */}
               <motion.div
                 key='menu-content'
@@ -280,11 +280,11 @@ const NavBar = () => {
                 animate='open'
                 exit='closed'
                 variants={menuVariants}
-                className='p-8 fixed top-0 text-white right-0 w-full h-lvh z-50 flex flex-col justify-center items-end'
+                className='px-8 fixed top-0 text-white right-0 w-full h-lvh bg-black z-50 flex flex-col justify-center items-end'
               >
                 {/* クローズボタン - 独立したアニメーションで表示 */}
                 <motion.div
-                  className='w-full flex justify-end mb-8 absolute top-8 right-8'
+                  className='w-full flex justify-end mb-8 absolute top-2 right-2'
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   // 閉じる時のアニメーションを早くする
@@ -297,10 +297,10 @@ const NavBar = () => {
                   <CloseButton setOpen={setOpen} />
                 </motion.div>
 
-                <motion.ul className='w-full flex flex-col gap-2 md:gap-6 items-end'>
+                <motion.ul className='w-full flex flex-col gap-2 md:gap-4 items-end'>
                   <motion.h2
                     variants={menuItemVariants}
-                    className='font-bold text-4xl md:text-6xl text-right mb-4'
+                    className='font-bold text-4xl md:text-5xl text-right'
                   >
                     MENU
                   </motion.h2>
@@ -333,11 +333,11 @@ const NavBar = () => {
                   >
                     <motion.h2
                       variants={menuItemVariants}
-                      className='font-bold text-4xl md:text-6xl text-right mb-4'
+                      className='font-bold text-4xl md:text-5xl text-right'
                     >
                       SNS
                     </motion.h2>
-                    <div className='flex gap-6 mt-2'>
+                    <div className='flex gap-2 md:gap-6 mt-2'>
                       <motion.a
                         href='https://github.com/sanpicule?tab=repositories'
                         target='_blank'
