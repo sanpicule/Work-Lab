@@ -27,12 +27,13 @@ const Hero = () => {
             />
           </motion.div>
         </div>
-        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white'>
+        <div className='w-[60%] absolute flex flex-col justify-start items-start gap-2 md:gap-12 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white'>
           <h1
-            className={`${caveat.className} text-5xl md:text-7xl text-center`}
+            className={`${caveat.className} text-5xl md:text-9xl text-center`}
           >
             Portfolio
           </h1>
+          <p className='text-start mt-2 text-xl md:text-4xl font-thin'>To be an engineer <br></br>who supports the acceleration of business</p>
         </div>
       </div>
     </div>
