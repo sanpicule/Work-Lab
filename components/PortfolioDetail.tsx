@@ -36,11 +36,7 @@ const PortfolioDetail = ({
   summary,
 }: PortfolioDetailProps) => {
   return (
-    <div className='w-[80%] md:w-4/5 max-w-5xl mx-auto mt-32 relative'>
-      {/* Decorative background elements */}
-      <div className='absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-full blur-lg -z-10'></div>
-      <div className='absolute top-1/4 -right-10 w-32 h-32 bg-gradient-to-bl from-pink-500/20 to-indigo-500/20 rounded-full blur-xl -z-10'></div>
-
+    <div className='w-full mx-auto mt-32 px-8 md:px-20 max-w-6xl'>
       {/* Header Section */}
       <div className='relative'>
         <div className='flex flex-col justify-start items-start text-start text-[#eee] mb-8'>
@@ -62,7 +58,7 @@ const PortfolioDetail = ({
         </div>
 
         {/* Main Image */}
-        <div className='hidden md:block mx-auto overflow-hidden rounded-xl shadow-2xl mb-16 transform transition-all hover:scale-[1.01] duration-300'>
+        <div className='hidden md:block mx-auto overflow-hidden rounded-xl shadow-2xl mb-16'>
           <Image
             src={image}
             alt={portfolioTitle}
@@ -71,7 +67,6 @@ const PortfolioDetail = ({
             quality={100}
             className='w-full h-auto object-cover'
           />
-          <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300'></div>
         </div>
 
         <div className='block md:hidden w-[60%] mx-auto overflow-hidden rounded-xl shadow-2xl mb-16'>
@@ -122,7 +117,7 @@ const PortfolioDetail = ({
                   {/* Content Grid */}
                   <div className='grid md:grid-cols-2 gap-8'>
                     {/* Process Image */}
-                    <div className='w-full h-[200px] md:h-[300px] overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300'>
+                    <div className='w-full h-[200px] md:h-[250px] overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300'>
                       <Image
                         src={info.image}
                         alt={info.title}
