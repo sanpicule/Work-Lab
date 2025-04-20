@@ -1,8 +1,12 @@
 import React from 'react'
 import SectionTitle from './SectionTitle'
 import Image from 'next/image'
+import LaunchIcon from '@mui/icons-material/Launch';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import Link from 'next/link';
 
 export interface PortfolioDetailProps {
+  link: string
   image: string
   spImage: string
   portfolioTitle: string
@@ -26,6 +30,7 @@ export interface ToolType {
 }
 
 const PortfolioDetail = ({
+  link,
   image,
   spImage,
   portfolioTitle,
@@ -55,6 +60,17 @@ const PortfolioDetail = ({
               {numberOf}人
             </p>
           </div>
+          <a href={link} target='_blank' rel='noopener noreferrer'>
+            <button className='flex items-center mt-6 rounded-md overflow-hidden border-2'>
+              <div className='px-2'>
+                <GitHubIcon />
+              </div>
+              <div className='flex items-center gap-2 p-1 bg-[#eee] text-[#2e2e2e]'>
+                <p className='font-semibold text-sm md:text-lg'>GitHubで見る</p>
+                <LaunchIcon />
+              </div>
+            </button>
+          </a>
         </div>
 
         {/* Main Image */}
