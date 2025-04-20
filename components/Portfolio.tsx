@@ -12,8 +12,8 @@ import ClickHereButton from './ClickHereButton'
 function Portfolio() {
   const customAnimate = useCustomAnimation()
   return (
-    <div className='w-full bg-[#eee] min-h-lvh'>
-      <div className='w-[80%] md:w-[60%] h-full min-h-lvh py-16 md:py-24 flex flex-col justify-center md:max-w-8xl mx-auto'>
+    <div className='w-full bg-[#eee] min-h-screen'>
+      <div className='w-[80%] md:w-[60%] h-full py-16 md:py-24 flex flex-col justify-center md:max-w-8xl mx-auto'>
         <SectionTitle title={siteConfig.portfolio} color='black' />
         <motion.div
           variants={customAnimate.scrollFadeInFromBottom}

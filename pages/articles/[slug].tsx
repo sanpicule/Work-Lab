@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
 const Article: NextPage<ArticleProps> = ({ page, blocks }) => {
   return (
-    <article className='w-[80%] md:w-[60%] px-8 rounded-md my-36 mx-auto md:my-48'>
+    <article className='w-[80%] md:w-[60%] rounded-md my-36 mx-auto md:my-48'>
       <div className='my-12'>
         <ArticleMeta page={page} />
       </div>
