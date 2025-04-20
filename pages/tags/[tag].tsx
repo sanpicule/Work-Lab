@@ -43,9 +43,9 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
 const Tag: NextPage<TagProps> = ({ pages, tag }) => {
   return (
-    <div className='w-full h-auto my-24 md:mt-48 flex flex-col justify-center py-4 px-8 md:px-20 max-w-6xl'>
+    <div className='w-[80%] md:w-[60%] h-auto my-36 md:my-48 flex flex-col justify-center max-w-6xl mx-auto'>
       <p className={`${caveat.className} text-5xl md:text-8xl tracking-wider font-extralight`}>{`#${tag}`}</p>
-      <div className='grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-12 lg:gap-10 mt-8 w-full'>
+      <div className='grid grid-cols-1 gap-3 md:gap-12 lg:gap-10 mt-8 w-full'>
         {/* Card */}
         {pages.map((page, index) => (
           <Card key={index} page={page} />

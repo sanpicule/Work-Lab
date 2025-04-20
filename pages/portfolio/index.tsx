@@ -66,6 +66,7 @@ const Index = () => {
   }, [])
   return (
     <PortfolioDetail
+      link='https://github.com/sanpicule/Work-Lab'
       image='/portfolio.png'
       spImage='/portfolio_sp.png'
       portfolioTitle='My Portfolio'

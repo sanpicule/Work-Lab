@@ -66,6 +66,7 @@ const Index = () => {
   }, [])
   return (
     <PortfolioDetail
+      link='https://github.com/sanpicule/KikaraHP'
       image='/kikara.png'
       spImage='/kikara_sp.png'
       portfolioTitle='Kikara'
