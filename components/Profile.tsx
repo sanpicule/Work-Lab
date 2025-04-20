@@ -33,7 +33,7 @@ const Profile = () => {
   ]
 
   return (
-    <div className='w-[80%] md:w-[60%] py-16 md:py-24 min-h-[100svh] flex flex-col justify-center  md:max-w-8xl mx-auto'>
+    <div className='w-[80%] md:w-[60%] py-16 md:py-24 min-h-[100lvh] flex flex-col justify-center  md:max-w-8xl mx-auto'>
       <SectionTitle title={siteConfig.profile} />
       <motion.div
         variants={customAnimate.scrollFadeInFromBottom}
@@ -95,7 +95,9 @@ const Profile = () => {
                   </span>
                   {item.title && (
                     <div>
-                      <p className='text-sm md:text-base font-semibold'>{item.title}</p>
+                      <p className='text-sm md:text-base font-semibold'>
+                        {item.title}
+                      </p>
                       <div className='text-gray-400 space-y-1'>
                         {item.subtitle.map((line, i) => (
                           <p key={i} className='text-xs break-words'>
@@ -139,8 +141,10 @@ const Profile = () => {
                 <li>MySQL</li>
                 <li>PostgreSQL</li>
               </ul>
-              
-              <p className='text-sm md:text-base font-bold mt-4 md:mt-6'>Others</p>
+
+              <p className='text-sm md:text-base font-bold mt-4 md:mt-6'>
+                Others
+              </p>
               <ul className='list-disc mt-1 md:mt-2 ml-4 md:ml-6 space-y-1 md:space-y-2 text-xs sm:text-sm'>
                 <li>Git</li>
                 <li>GitHub</li>
