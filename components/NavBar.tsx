@@ -280,7 +280,7 @@ const NavBar = () => {
                 animate='open'
                 exit='closed'
                 variants={menuVariants}
-                className='p-8 fixed top-0 text-white right-0 w-full h-[100lvh] z-50 flex flex-col justify-center items-end'
+                className='p-8 fixed top-0 text-white right-0 w-full h-lvh z-50 flex flex-col justify-center items-end'
               >
                 {/* クローズボタン - 独立したアニメーションで表示 */}
                 <motion.div

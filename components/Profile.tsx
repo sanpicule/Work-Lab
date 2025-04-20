@@ -33,7 +33,7 @@ const Profile = () => {
   ]
 
   return (
-    <div className='w-[80%] md:w-[60%] py-16 md:py-24 min-h-[100lvh] flex flex-col justify-center  md:max-w-8xl mx-auto'>
+    <div className='w-[80%] md:w-[60%] py-16 md:py-24 min-h-lvh flex flex-col justify-center  md:max-w-8xl mx-auto'>
       <SectionTitle title={siteConfig.profile} />
       <motion.div
         variants={customAnimate.scrollFadeInFromBottom}

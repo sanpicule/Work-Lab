@@ -13,10 +13,10 @@ const Hero = () => {
   })
   const scale = useTransform(scrollYProgress, [0, 1], [1, 4])
   return (
-    <div className='flex w-full h-[100lvh]'>
+    <div className='flex w-full h-lvh'>
       <div className='relative overflow-hidden w-full mx-auto md:w-full'>
         <div ref={ref}>
-          <motion.div style={{ scale }} className='h-[100lvh] brightness-50'>
+          <motion.div style={{ scale }} className='h-lvh brightness-50'>
             <Image
               className='mx-auto object-cover w-full h-full'
               src='/hero.jpg'
