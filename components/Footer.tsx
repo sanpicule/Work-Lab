@@ -17,8 +17,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className='bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12 px-6'>
-      <div className='container mx-auto max-w-6xl w-[80%] md:w-[60%]'>
+    <footer className='bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12'>
+      <div className='relative w-full min-h-screen px-10 md:px-40 py-16 md:py-32'>
         {/* Top section with logo and social icons */}
         <div className='flex flex-col md:flex-row items-center md:items-start justify-between mb-10 border-b border-gray-700 pb-8'>
           {/* Left side - Logo and tagline */}
@@ -113,16 +113,18 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className='text-xl font-semibold mb-4'>Development Blog</h3>
+            <h3 className='text-xl font-semibold mb-4'>Dev Blog</h3>
             <button className='w-[80px] md:w-[100px] bg-[#eee] p-2 rounded-md hover:opacity-70 transition duration-300'>
-              <Image
-                className='mx-auto object-cover w-full h-full'
-                src='/zenn.png'
-                alt=''
-                width={2000}
-                height={2000}
-                quality={100}
-              />
+              <a href='https://zenn.dev/sanpi34' target='_blank' rel='noopener noreferrer'>
+                <Image
+                  className='mx-auto object-cover w-full h-full'
+                  src='/zenn.png'
+                  alt=''
+                  width={2000}
+                  height={2000}
+                  quality={100}
+                />
+              </a>
             </button>
           </div>
         </div>

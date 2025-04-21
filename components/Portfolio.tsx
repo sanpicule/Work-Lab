@@ -1,61 +1,67 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 import { siteConfig } from '@/site.config'
 import { portfolioList } from '@/utils/data'
-import { motion } from 'framer-motion'
 import useCustomAnimation from '@/hooks/useCustomAnimation'
 import SectionTitle from './SectionTitle'
 import { caveat } from '@/utils/font'
 import ClickHereButton from './ClickHereButton'
 
-function Portfolio() {
+const Portfolio = () => {
   const customAnimate = useCustomAnimation()
+
   return (
-    <div className='w-full bg-[#eee] min-h-screen'>
-      <div className='w-[80%] md:w-[60%] h-full py-16 md:py-24 flex flex-col justify-center md:max-w-8xl mx-auto'>
-        <SectionTitle title={siteConfig.portfolio} color='black' />
+    <div className='relative w-full min-h-screen bg-gradient-to-b from-transparent via-[#5f5f5f]/50 to-transparent px-10 md:px-40'>
+      <SectionTitle title={siteConfig.portfolio} />
+      <div className='container mx-auto px-4 py-12'>
         <motion.div
           variants={customAnimate.scrollFadeInFromBottom}
           initial={customAnimate.scrollFadeInFromBottom.initial}
           whileInView={customAnimate.scrollFadeInFromBottom.whileInView}
           viewport={customAnimate.scrollFadeInFromBottom.viewport}
-          className='mt-8 md:mt-12 grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-8'
+          className='max-w-6xl mx-auto'
         >
-          {portfolioList.map((portfolio, i) => (
-            <div
-              key={portfolio.id}
-              className='flex flex-col justify-center gap-2 rounded-2xl text-[#2e2e2e]'
-            >
-              <p className={`${caveat.className} text-4xl font-bold`}>
-                {i + 1}. {portfolio.title}
-              </p>
-              <Link
-                href={portfolio.url}
-                target='_blank'
-                className='w-full h-full p-4 rounded-md'
-              >
-                <div className='relative transition duration-500 w-full h-full cursor-pointer overflow-hidden rounded-md'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+            {portfolioList.map((portfolio, index) => (
+              <div className='group relative mt-8'>
+                {/* 背景グラデーション */}
+                <div className='absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 z-0' />
+
+                {/* 画像コンテナ */}
+                <div className='relative w-full rounded-xl overflow-hidden z-10'>
                   <Image
                     src={portfolio.image}
-                    alt=''
-                    width={400}
-                    height={300}
-                    className='w-full h-full object-cover'
+                    alt={portfolio.title}
+                    width={800}
+                    height={600}
+                    className='rounded-xl w-full h-auto object-contain'
                   />
                 </div>
-              </Link>
-              <div>
-                <Link
-                  href={`/${portfolio.id}`}
-                  scroll={false}
-                  className='text-center mt-4'
+
+                {/* タイトル */}
+                <h3
+                  className={`${caveat.className} text-3xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500 z-10`}
                 >
-                  <ClickHereButton text='詳細を見る' bgcolor={'white'} />
-                </Link>
+                  {portfolio.title}
+                </h3>
+
+                {/* ボタン */}
+                <div className='flex justify-center z-10'>
+                  <Link href={`/${portfolio.id}`} scroll={false}>
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ClickHereButton text='詳細を見る' />
+                    </motion.div>
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </motion.div>
       </div>
     </div>

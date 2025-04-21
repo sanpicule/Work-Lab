@@ -12,7 +12,7 @@ import ClickHereButton from './ClickHereButton'
 const HomeArticles: NextPage<IndexProps> = ({ pages }) => {
   const customAnimate = useCustomAnimation()
   return (
-    <div className='w-[80%] md:w-[60%] py-16 md:py-24 flex flex-col justify-center md:max-w-8xl mx-auto'>
+    <div className='relative w-full min-h-screen bg-gradient-to-b from-transparent via-black/5 to-transparent dark:via-white/5 px-10 md:px-40 py-16 md:py-32'>
       <SectionTitle title={siteConfig.articleList} />
       <motion.div
         variants={customAnimate.scrollFadeInFromBottom}
