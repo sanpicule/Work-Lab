@@ -1,16 +1,19 @@
-import Image from 'next/image'
-import React from 'react'
-import { siteConfig } from '@/site.config'
+'use client'
+
 import { motion } from 'framer-motion'
-import useCustomAnimation from '../hooks/useCustomAnimation'
-import SectionTitle from './SectionTitle'
+import { siteConfig } from '@/site.config'
+import Image from 'next/image'
+import useCustomAnimation from '@/hooks/useCustomAnimation'
 import PinDropIcon from '@mui/icons-material/PinDrop'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import GitHubIcon from '@mui/icons-material/GitHub'
+import { useTheme } from 'next-themes'
+import SectionTitle from './SectionTitle'
 
 const Profile = () => {
   const customAnimate = useCustomAnimation()
+
   const timeline = [
     {
       year: 'now',
@@ -33,130 +36,123 @@ const Profile = () => {
   ]
 
   return (
-    <div className='w-[80%] md:w-[60%] py-16 md:py-24 flex flex-col justify-center md:max-w-8xl mx-auto'>
+    <div className='relative w-full min-h-screen bg-gradient-to-b from-transparent via-black/5 to-transparent dark:via-white/5 px-10 md:px-40 py-16 md:py-32'>
       <SectionTitle title={siteConfig.profile} />
-      <motion.div
-        variants={customAnimate.scrollFadeInFromBottom}
-        initial={customAnimate.scrollFadeInFromBottom.initial}
-        whileInView={customAnimate.scrollFadeInFromBottom.whileInView}
-        viewport={customAnimate.scrollFadeInFromBottom.viewport}
-        className='grid w-full mt-6 md:mt-8 lg:mt-12 gap-6 md:gap-8 lg:gap-24 items-start justify-between grid-cols-1 md:grid-cols-3'
-      >
-        {/* 1カラム目：画像 */}
-        <div className='flex flex-row md:flex-col items-start md:items-center justify-start md:justify-center gap-6 md:gap-4'>
-          <div className='flex flex-col items-center justify-center gap-4'>
-            <div className='relative w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] md:w-[180px] md:h-[180px] lg:w-[200px] lg:h-[200px] rounded-full overflow-hidden border-4 border-white shadow-2xl'>
-              <Image
-                src='/profile.jpeg'
-                alt='プロフィール画像'
-                fill
-                className='object-cover grayscale'
-              />
-            </div>
-            <h2 className='text-xs sm:text-sm md:text-base lg:text-lg tracking-widest font-semibold flex items-center gap-2'>
-              SANSHIRO HIKAWA
-            </h2>
-          </div>
-          <div className='flex flex-col items-start justify-center gap-2 mt-4 sm:mt-0'>
-            <div className='flex items-center gap-1 md:gap-2'>
-              <PinDropIcon className='text-lg md:text-xl' />
-              <p className='text-xs sm:text-sm'>Japan.Tokyo</p>
-            </div>
-            <div className='flex items-center gap-1 md:gap-2'>
-              <CalendarMonthIcon className='text-lg md:text-xl' />
-              <p className='text-xs sm:text-sm'>January.4th.1997</p>
-            </div>
-            <div className='flex items-center gap-1 md:gap-2'>
-              <TwitterIcon className='text-lg md:text-xl' />
-              <p className='text-xs sm:text-sm'>Sanpi</p>
-            </div>
-            <div className='flex items-center gap-1 md:gap-2'>
-              <GitHubIcon className='text-lg md:text-xl' />
-              <p className='text-xs sm:text-sm'>sanpicule</p>
-            </div>
-          </div>
-        </div>
+      <div className='container mx-auto px-4 py-12'>
+        <motion.div
+          variants={customAnimate.scrollFadeInFromBottom}
+          initial={customAnimate.scrollFadeInFromBottom.initial}
+          whileInView={customAnimate.scrollFadeInFromBottom.whileInView}
+          viewport={customAnimate.scrollFadeInFromBottom.viewport}
+          className='max-w-6xl mx-auto'
+        >
+          <div className='grid lg:grid-cols-2 gap-16 items-center'>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className='space-y-8'
+            >
+              <div className='relative w-[180px] h-[180px] md:w-[200px] md:h-[200px] rounded-full overflow-hidden border-4  border-transparent bg-gradient-to-r from-purple-500 to-pink-500 shadow-2xl'>
+                <Image
+                  src='/profile.jpeg'
+                  alt='プロフィール画像'
+                  fill
+                  className='object-cover grayscale'
+                />
+              </div>
+              <div>
+                <h2 className='text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500'>
+                  SANSHIRO HIKAWA
+                </h2>
+                <div className='space-y-4'>
+                  <div className='flex items-center gap-3 text-lg'>
+                    <PinDropIcon className='text-purple-500' />
+                    <p>Japan.Tokyo</p>
+                  </div>
+                  <div className='flex items-center gap-3 text-lg'>
+                    <CalendarMonthIcon className='text-pink-500' />
+                    <p>January.4th.1997</p>
+                  </div>
+                  <div className='flex items-center gap-3 text-lg'>
+                    <TwitterIcon className='text-blue-400' />
+                    <p>Sanpi</p>
+                  </div>
+                  <div className='flex items-center gap-3 text-lg'>
+                    <GitHubIcon className='text-gray-800 dark:text-gray-200' />
+                    <p>sanpicule</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
 
-        {/* 2カラム目：略歴とタイムライン */}
-        <div className='flex flex-col w-full gap-4 md:gap-6 text-left'>
-          <p className='text-xs sm:text-sm break-words'>
-            2020年に株式会社JCOMへ新卒入社。2022年8月から株式会社Gizumoに転職し、自治体向けサービス開発に参画。要件定義からテストまでの各工程を経験。現在TLとして新人育成やチーム管理を兼任。
-          </p>
-          <section className='w-full mt-2 md:mt-4'>
-            <h2 className='text-base md:text-lg tracking-widest font-semibold mb-4 md:mb-6 flex items-center gap-2 md:gap-4'>
-              EDUCATION
-              <span className='flex-1 h-px bg-white'></span>
-            </h2>
-            <div className='relative mt-8 md:mt-12 border-l-2 border-white ml-2 pl-4 md:pl-6'>
-              {timeline.map((item, index) => (
-                <div key={index} className='mb-6 md:mb-8 relative'>
-                  <span className='absolute -left-[32px] md:-left-[40px] -top-4 md:-top-6 text-xs md:text-sm font-medium'>
-                    {item.year}
-                  </span>
-                  {item.title && (
-                    <div>
-                      <p className='text-sm md:text-base font-semibold'>
-                        {item.title}
-                      </p>
-                      <div className='text-gray-400 space-y-1'>
-                        {item.subtitle.map((line, i) => (
-                          <p key={i} className='text-xs break-words'>
-                            {line}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className='space-y-8'
+            >
+
+              <div className='space-y-6'>
+                <h3 className='text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500'>
+                  Skills
+                </h3>
+                <div className='flex flex-wrap gap-3'>
+                  {[
+                    'React',
+                    'Next.js',
+                    'TypeScript',
+                    'Node.js',
+                    'MySQL',
+                    'PostgreSQL',
+                  ].map((skill) => (
+                    <motion.span
+                      key={skill}
+                      whileHover={{ scale: 1.05 }}
+                      className='px-4 py-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full text-sm backdrop-blur-sm border border-purple-500/20'
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
+
+              <div className='space-y-6'>
+                <h3 className='text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500'>
+                  Timeline
+                </h3>
+                <div className='space-y-6'>
+                  {timeline.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className='relative pl-8 border-l-2 border-purple-500/20'
+                    >
+                      <div className='absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500' />
+                      <div className='space-y-2'>
+                        <p className='text-purple-500 font-medium'>
+                          {item.year}
+                        </p>
+                        <h4 className='text-lg font-semibold'>{item.title}</h4>
+                        {item.subtitle.map((text, i) => (
+                          <p
+                            key={i}
+                            className='text-gray-600 dark:text-gray-400'
+                          >
+                            {text}
                           </p>
                         ))}
                       </div>
-                    </div>
-                  )}
+                    </motion.div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </section>
-        </div>
-
-        {/* 3カラム目：スキル */}
-        <section className='w-full'>
-          <h2 className='text-base md:text-lg tracking-widest font-semibold mb-4 md:mb-6 flex items-center gap-2 md:gap-4'>
-            SKILL
-            <span className='flex-1 h-px bg-white'></span>
-          </h2>
-          <div className='grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 text-left'>
-            <div>
-              <p className='text-sm md:text-base font-bold'>Frontend</p>
-              <ul className='list-disc mt-1 md:mt-2 ml-4 md:ml-6 space-y-1 md:space-y-2 text-xs sm:text-sm'>
-                <li>React</li>
-                <li>Next.js</li>
-                <li>TypeScript</li>
-                <li>Tailwind CSS</li>
-                <li>JavaScript</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Material UI</li>
-              </ul>
-            </div>
-            <div>
-              <p className='text-sm md:text-base font-bold'>Backend</p>
-              <ul className='list-disc mt-1 md:mt-2 ml-4 md:ml-6 space-y-1 md:space-y-2 text-xs sm:text-sm'>
-                <li>Node.js</li>
-                <li>Express</li>
-                <li>MySQL</li>
-                <li>PostgreSQL</li>
-              </ul>
-
-              <p className='text-sm md:text-base font-bold mt-4 md:mt-6'>
-                Others
-              </p>
-              <ul className='list-disc mt-1 md:mt-2 ml-4 md:ml-6 space-y-1 md:space-y-2 text-xs sm:text-sm'>
-                <li>Git</li>
-                <li>GitHub</li>
-                <li>Docker</li>
-                <li>Figma</li>
-                <li>Photoshop</li>
-                <li>Illustrator</li>
-              </ul>
-            </div>
+              </div>
+            </motion.div>
           </div>
-        </section>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   )
 }

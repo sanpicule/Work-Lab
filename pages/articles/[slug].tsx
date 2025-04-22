@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import NotionBlocks from 'notion-block-renderer'
 
@@ -41,6 +41,9 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 }
 
 const Article: NextPage<ArticleProps> = ({ page, blocks }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <article className='w-[80%] md:w-[60%] rounded-md my-36 mx-auto md:my-48'>
       <div className='my-12'>

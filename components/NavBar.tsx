@@ -296,8 +296,7 @@ const NavBar = () => {
                 >
                   <CloseButton setOpen={setOpen} />
                 </motion.div>
-
-                <motion.ul className='w-full flex flex-col gap-2 md:gap-4 items-end'>
+                <motion.ul className='w-full flex flex-col gap-3 md:gap-4 items-end'>
                   <motion.h2
                     variants={menuItemVariants}
                     className='font-bold text-4xl md:text-5xl text-right'
@@ -320,7 +319,7 @@ const NavBar = () => {
                           onClick={() => setOpen(false)}
                           className='transition-colors duration-300 flex items-center justify-end'
                         >
-                          <h4 className='text-2xl md:text-3xl font-semibold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent transition-colors duration-300'>
+                          <h4 className='text-3xl md:text-4xl font-semibold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent transition-colors duration-300'>
                             {navMenu.menuName}
                           </h4>
                         </Link>

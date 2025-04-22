@@ -1,7 +1,6 @@
 // components/FancyButton.tsx
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 interface ClickHereButtonProps {
   text: string
@@ -36,16 +35,15 @@ const ClickHereButton: React.FC<ClickHereButtonProps> = ({
       <div
         className={`
           white-circle absolute top-[20px] left-0 h-[60px] w-[60px] 
-          rounded-full ${isDark ? 'bg-white' : 'bg-gradient-to-r from-blue-400 to-purple-500'} 
+          rounded-full bg-gradient-to-r from-blue-400 to-purple-500
           flex justify-center items-center transform scale-100 md:scale-0 
           transition duration-300 md:group-hover:scale-100 
-          active:${isDark ? 'bg-gray-300' : 'bg-gray-700'}
+          active:${isDark ? 'bg-gray-300' : 'bg-gray-300'}
         `}
       >
-        <FontAwesomeIcon
-          icon={faArrowRightLong}
-          className={`${isDark ? 'text-black' : 'text-white'} text-[20px]`}
-        />
+        <div className='text-white'>
+          <ArrowForwardIcon />
+        </div>
       </div>
 
       {/* Button Text - スマホでは左寄せ */}
