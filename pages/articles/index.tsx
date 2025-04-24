@@ -27,7 +27,6 @@ const Home: NextPage<IndexProps> = ({ pages }) => {
     <>
       <div className='w-full h-auto my-36 md:my-48 flex flex-col mx-auto justify-center py-4 px-8 md:px-20 max-w-6xl'>
         <SectionTitle title={siteConfig.articleList} />
-
         <div className='w-full mt-6 ml-auto'>
           <a
             href='https://zenn.dev/sanpi34'
