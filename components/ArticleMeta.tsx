@@ -8,7 +8,7 @@ const ArticleMeta: React.FC<ArticleMetaProps> = ({ page }) => {
     <>
       {/* page name */}
       <h2 className='my-8 text-2xl md:text-3xl'>{getText(page.properties.name.title)}</h2>
-      <div className='bg-gray-100 px-6 py-4 rounded text-sm text-gray-500 w-full'>
+      <div className='w-full px-6 py-4 rounded-xl text-sm text-white bg-gradient-to-br from-indigo-500/80 to-purple-600/80 backdrop-blur-md shadow-lg'>
         {/* published */}
         <div className='flex items-center gap-4'>
           <div className='w-[100px]'>Published</div>

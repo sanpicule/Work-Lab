@@ -28,21 +28,24 @@ const Home: NextPage<IndexProps> = ({ pages }) => {
       <div className='w-full h-auto my-36 md:my-48 flex flex-col mx-auto justify-center py-4 px-8 md:px-20 max-w-6xl'>
         <SectionTitle title={siteConfig.articleList} />
 
-        <div className='mt-4 ml-auto'>
+        <div className='w-full mt-6 ml-auto'>
           <a
             href='https://zenn.dev/sanpi34'
             target='_blank'
             rel='noopener noreferrer'
-            className='flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md text-white shadow-lg hover:bg-white/20 transition duration-300'
+            className='flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white/30 backdrop-blur-md text-white shadow-xl hover:bg-white/20 transition-all duration-300 border border-white/10 hover:scale-[1.03]'
           >
-            <Image
-              src='/zenn_logo.svg'
-              alt='Zenn Logo'
-              width={20}
-              height={20}
-              className='w-5 h-5 object-contain'
-            />
-            <span className='text-sm font-medium'>Zennでも記事を見る</span>
+            <div className='w-6 h-6 relative'>
+              <Image
+                src='/zenn_logo.svg'
+                alt='Zenn Logo'
+                fill
+                className='object-contain'
+              />
+            </div>
+            <span className='text-sm md:text-base font-semibold tracking-wide'>
+              Zennでも記事を見る
+            </span>
           </a>
         </div>
 

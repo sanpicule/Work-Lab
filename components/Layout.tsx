@@ -84,7 +84,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           initial='initial'
           animate='animate'
           variants={overlayVariants}
-          className='fixed inset-0 z-50 bg-gradient-to-br from-blue-500 to-purple-500'
+          className='fixed inset-0 z-50 bg-[#eee]'
         />
 
         <div className='flex flex-col'>
@@ -96,7 +96,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             animate='animate'
             exit='exit'
             variants={pageVariants}
-            className='min-h-screen bg-[#2e2e2e] shadow-lg relative'
+            className='min-h-screen bg-gradient-to-r from-[#1e1e2f] via-[#7D4ECF] to-[#CD47DF] relative z-0'
           >
             {/* コンテンツをChildWrapperでラップする必要があります */}
             <main className='items-stretch'>

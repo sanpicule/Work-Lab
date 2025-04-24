@@ -24,28 +24,28 @@ export const portfolioList = [
 export const navMenuList = [
   {
     id: 1,
-    menuName: `${siteConfig.home}`,
-    pathName: '/',
-  },
-  {
-    id: 2,
     menuName: `${siteConfig.articleList}`,
     pathName: '/articles',
   },
   {
-    id: 3,
+    id: 2,
     menuName: 'Kikara',
     pathName: '/kikara',
   },
   {
-    id: 4,
+    id: 3,
     menuName: 'TinyPost',
     pathName: '/tinypost',
   },
   {
-    id: 5,
+    id: 4,
     menuName: 'My Portfolio',
     pathName: '/portfolio',
+  },
+  {
+    id: 5,
+    menuName: `CONTACT`,
+    pathName: '/contact',
   },
 ]
 
