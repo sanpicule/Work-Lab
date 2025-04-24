@@ -8,61 +8,64 @@ import { getPhotoData } from '@/hooks/useGetRandomPicture'
 
 const Card: FC<CardProps> = ({ page }) => {
   const [url, setUrl] = useState<string | null>(null)
+
   useEffect(() => {
     const fetchPhoto = async () => {
       const res = await getPhotoData()
       setUrl(res)
     }
-
     fetchPhoto()
   }, [])
-  const customAnimate = useCustomAnimation()
-  return (
-    <>
-      {url && (
-        <motion.div
-          variants={customAnimate.scrollFadeInFromBottom}
-          initial={customAnimate.scrollFadeInFromBottom.initial}
-          whileInView={customAnimate.scrollFadeInFromBottom.whileInView}
-          viewport={customAnimate.scrollFadeInFromBottom.viewport}
-        >
-          <Link
-            href={`/articles/${getText(page.properties.slug.rich_text)}`}
-            scroll={false}
-          >
-            <div className='relative h-full group'>
-              {/* グラデーション影（ホバー時のみ表示） */}
-              <div className='absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 opacity-0 blur-2xl rounded-md transition-opacity duration-300 group-hover:opacity-60 pointer-events-none'></div>
 
-              {/* コンテンツ本体 */}
-              <div className='relative z-10 transition duration-200 flex flex-col rounded-2xl h-full p-4 shadow-2xl bg-[#1e1e1e]'>
-                <div className='text-start'>
-                  <p className='text-xs text-gray-400'>
-                    {getDate(page.properties.published.date)}
-                  </p>
-                  <p className='text-sm md:text-[16px] font-bold mt-2 text-[#eee]'>
-                    {getText(page.properties.name.title)}
-                  </p>
-                </div>
-                {/* tag */}
-                <div className='flex flex-wrap mt-4'>
-                  {getMultiSelect(page.properties.tags.multi_select).map(
-                    (tag, index) => (
-                      <span
-                        key={index}
-                        className='text-xs md:text-sm px-2 py-[1px] bg-gray-200 text-[#464545] rounded-md break-words mr-2 mb-2'
-                      >
-                        {`#${tag}`}
-                      </span>
-                    )
-                  )}
-                </div>
+  const customAnimate = useCustomAnimation()
+
+  return (
+    url && (
+      <motion.div
+        variants={customAnimate.scrollFadeInFromBottom}
+        initial='initial'
+        whileInView='whileInView'
+        viewport={customAnimate.scrollFadeInFromBottom.viewport}
+        className='w-full h-full'
+      >
+        <Link
+          href={`/articles/${getText(page.properties.slug.rich_text)}`}
+          scroll={false}
+          className='block'
+        >
+          <div className='relative group rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-[#1e1e2f] to-[#2e2e3f] hover:shadow-2xl transition-all duration-300'>
+            {/* Hover Gradient Glow */}
+            <div className='absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-0 group-hover:opacity-40 blur-2xl transition-opacity duration-500 pointer-events-none z-0' />
+
+            {/* Card Content */}
+            <div className='relative z-10 p-5 flex flex-col justify-between h-full'>
+              <div>
+                <p className='text-xs text-start text-gray-400'>
+                  {getDate(page.properties.published.date)}
+                </p>
+                <h2 className='text-base text-start md:text-lg font-semibold text-white mt-1'>
+                  {getText(page.properties.name.title)}
+                </h2>
+              </div>
+
+              {/* Tags */}
+              <div className='flex flex-wrap gap-2 mt-4'>
+                {getMultiSelect(page.properties.tags.multi_select).map(
+                  (tag, index) => (
+                    <span
+                      key={index}
+                      className='text-xs md:text-sm bg-gradient-to-r from-blue-400/60 to-purple-500/60 text-white px-3 py-1 rounded-full shadow-sm hover:shadow-md transition duration-200'
+                    >
+                      #{tag}
+                    </span>
+                  )
+                )}
               </div>
             </div>
-          </Link>
-        </motion.div>
-      )}
-    </>
+          </div>
+        </Link>
+      </motion.div>
+    )
   )
 }
 

@@ -19,14 +19,9 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
       viewport={customAnimate.scrollFadeInFromTop.viewport}
       className='flex items-center gap-4 w-full'
     >
-      <h2
-        className='text-lg lg:text-xl tracking-[1rem] font-semibold mb-4 md:mb-6 whitespace-nowrap bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent'>
+      <h2 className='tracking-widest text-3xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500'>
         {title}
       </h2>
-
-      <span
-        className={`flex-1 h-[1px] ${color === 'black' ? 'bg-[#2e2e2e]' : 'bg-[#eee]'} mb-4 md:mb-6`}
-      ></span>
     </motion.div>
   )
 }

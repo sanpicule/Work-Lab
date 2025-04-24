@@ -1,46 +1,40 @@
 import { useEffect, useState } from 'react'
 
-const fullText = 'To be an engineer \nwho supports the acceleration of business'
-
 export interface PreloaderProps {
   setIsLoading: (isLoading: boolean) => void
 }
 
 const Preloader = ({ setIsLoading }: PreloaderProps) => {
-  const [displayedText, setDisplayedText] = useState('')
+  const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    const delay = 1000 // 表示開始のディレイ（2秒）
-
-    const startTyping = () => {
-      let index = 0
-      const interval = setInterval(() => {
-        setDisplayedText((prev) => prev + fullText[index])
-        index++
-        if (index === fullText.length) {
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
           clearInterval(interval)
-          // タイピング終了後にローディング非表示
-          setTimeout(() => {
-            setIsLoading(false)
-          }, 1000) // タイピング後1秒待機してからフェードアウト
+          setTimeout(() => setIsLoading(false), 400)
+          return 100
         }
-      }, 50)
-    }
+        return prev + 2 // 2ずつ進めて1.5〜2秒で完了
+      })
+    }, 20)
 
-    const timeout = setTimeout(startTyping, delay)
-    return () => clearTimeout(timeout)
+    return () => clearInterval(interval)
   }, [])
 
   return (
-    <div
-      className='fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-b from-black/70 via-black/80 to-black/70 transition-opacity duration-1000'
-    >
-      <p className='whitespace-pre-line text-center text-xl md:text-3xl font-thin max-w-xl p-4 text-white'>
-        {displayedText}
-        <span className='animate-pulse'>|</span>
-      </p>
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-[#7D4ECF] to-[#CD47DF]">
+      <div className="text-white text-lg tracking-widest font-light mb-6">
+        Loading {progress}%
+      </div>
+      <div className="w-64 h-1.5 bg-white/20 rounded-full overflow-hidden relative">
+        <div
+          className="h-full bg-white rounded-full transition-all duration-100 ease-linear"
+          style={{ width: `${progress}%` }}
+        />
+        <div className="absolute top-0 left-0 h-full w-full animate-shimmer bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+      </div>
     </div>
   )
 }
-
 export default Preloader

@@ -43,7 +43,7 @@ const Portfolio = () => {
 
                 {/* タイトル */}
                 <h3
-                  className={`${caveat.className} text-3xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500 z-10`}
+                  className={`${caveat.className} text-3xl font-bold mb-4 text-center bg-clip-text text-[#eee] z-10`}
                 >
                   {portfolio.title}
                 </h3>
