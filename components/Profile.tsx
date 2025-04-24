@@ -8,7 +8,6 @@ import PinDropIcon from '@mui/icons-material/PinDrop'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import GitHubIcon from '@mui/icons-material/GitHub'
-import { useTheme } from 'next-themes'
 import SectionTitle from './SectionTitle'
 
 const Profile = () => {
@@ -139,7 +138,7 @@ const Profile = () => {
                         {item.subtitle.map((text, i) => (
                           <p
                             key={i}
-                            className='text-gray-600 dark:text-gray-400'
+                            className='text-[#eee]/80 dark:text-gray-400'
                           >
                             {text}
                           </p>

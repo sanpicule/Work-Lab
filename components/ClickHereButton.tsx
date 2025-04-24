@@ -1,6 +1,6 @@
 // components/FancyButton.tsx
 import React from 'react'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
 interface ClickHereButtonProps {
   text: string
@@ -14,43 +14,30 @@ const ClickHereButton: React.FC<ClickHereButtonProps> = ({
   const isDark = bgcolor === 'black'
 
   return (
-    <div
+    <button
       className={`
-        btn relative flex items-center justify-center flex-row 
-        h-[100px] w-[300px] ${isDark ? 'text-white' : 'text-black'} 
-        no-underline group 
-        active:scale-[0.97] transition-transform duration-150 ease-in-out
+        relative group overflow-hidden
+        px-6 py-3 md:py-4 md:px-8 mt-8 mx-auto
+        rounded-full w-[240px] md:w-[300px]
+        font-semibold text-sm md:text-base
+        flex items-center justify-center gap-3
+        backdrop-blur-lg transition-all
+        duration-300 ease-in-out shadow-lg
+        ${isDark ? 'bg-black/30 text-white' : 'bg-white/30 text-zinc-900'}
+        hover:shadow-xl active:scale-95
       `}
     >
-      {/* Outer circle - スマホでは非表示 */}
-      <div
-        className={`
-          circle absolute top-[20px] left-0 h-[60px] w-[60px] 
-          rounded-full border ${isDark ? 'border-white' : 'border-black'} 
-          transform transition duration-300 group-hover:scale-0 hidden md:block
-        `}
-      ></div>
+      {/* Hover Overlay */}
+      <span
+        className='absolute inset-0 z-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-blue-500 to-purple-500 transition-opacity duration-300'
+        aria-hidden='true'
+      ></span>
 
-      {/* White circle with icon - スマホでは常に表示、タップ時に色変化 */}
-      <div
-        className={`
-          white-circle absolute top-[20px] left-0 h-[60px] w-[60px] 
-          rounded-full bg-gradient-to-r from-blue-400 to-purple-500
-          flex justify-center items-center transform scale-100 md:scale-0 
-          transition duration-300 md:group-hover:scale-100 
-          active:${isDark ? 'bg-gray-300' : 'bg-gray-300'}
-        `}
-      >
-        <div className='text-white'>
-          <ArrowForwardIcon />
-        </div>
-      </div>
-
-      {/* Button Text - スマホでは左寄せ */}
-      <span className='text ml-[-70px] md:ml-[-150px] text-[16px] z-[2] transition-all duration-300 md:group-hover:ml-[-70px]'>
+      {/* Text */}
+      <span className='relative z-10 whitespace-nowrap group-hover:text-white transition-colors duration-300'>
         {text}
       </span>
-    </div>
+    </button>
   )
 }
 
