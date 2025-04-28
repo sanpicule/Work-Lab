@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import Head from 'next/head'
 import type { AppProps } from 'next/app'
 import Layout from '@/components/Layout'
 import '@/styles/globals.css'
@@ -9,6 +10,11 @@ export default function App({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
+      <Head>
+        <title>Hikawa's Portfolio</title>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+
       {isLoading && <Preloader setIsLoading={setIsLoading} />}
       {!isLoading && (
         <Layout>
