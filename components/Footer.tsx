@@ -3,7 +3,6 @@
 import React from 'react'
 import Link from 'next/link'
 import { siteConfig } from '@/site.config'
-import { caveat } from '@/utils/font'
 import { navMenuList } from '@/utils/data'
 import { motion } from 'framer-motion'
 import {
@@ -17,14 +16,14 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className='bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12'>
-      <div className='relative w-full min-h-screen px-10 md:px-40 py-16 md:py-32'>
+    <footer className='bg-gradient-to-r from-gray-900 to-gray-800 text-white py-8'>
+      <div className='relative w-full px-10 md:px-40'>
         {/* Top section with logo and social icons */}
         <div className='flex flex-col md:flex-row items-center md:items-start justify-between mb-10 border-b border-gray-700 pb-8'>
           {/* Left side - Logo and tagline */}
           <div className='text-left mb-6 md:mb-0'>
             <h1
-              className={`${caveat.className} text-3xl md:text-4xl text-white mb-2`}
+              className='text-3xl md:text-4xl text-white mb-2'
             >
               Portfolio
             </h1>
@@ -96,7 +95,7 @@ const Footer = () => {
                     href={menu.pathName}
                     className='transition duration-300 md:hover:text-purple-500'
                   >
-                    {menu.menuName}
+                    {` - ${menu.menuName}`}
                   </Link>
                 </li>
               ))}
@@ -106,15 +105,15 @@ const Footer = () => {
           <div>
             <h3 className='text-xl font-semibold mb-4'>Services</h3>
             <ul className='space-y-2 text-gray-400'>
-              <li>Web Development</li>
-              <li>UI/UX Design</li>
-              <li>Consulting</li>
+              <li> - Web Development</li>
+              <li> - UI/UX Design</li>
+              <li> - Consulting</li>
             </ul>
           </div>
 
           <div>
             <h3 className='text-xl font-semibold mb-4'>Dev Blog</h3>
-            <button className='w-[80px] md:w-[100px] bg-[#eee] p-2 rounded-md hover:opacity-70 transition duration-300'>
+            <button className='w-[50px] md:w-[80px] bg-[#eee] p-2 rounded-md hover:opacity-70 transition duration-300 ml-4'>
               <a href='https://zenn.dev/sanpi34' target='_blank' rel='noopener noreferrer'>
                 <Image
                   className='mx-auto object-cover w-full h-full'
