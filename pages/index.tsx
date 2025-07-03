@@ -1,31 +1,34 @@
-import type { GetStaticProps, NextPage } from 'next'
-import React from 'react'
-import { fetchPages } from '@/utils/notion'
-import { IndexProps } from '@/types/types'
-import Portfolio from '@/components/Portfolio'
-import HomeArticles from '@/components/HomeArticles'
-import Profile from '@/components/Profile'
+import type { NextPage, GetStaticProps } from 'next'
 import Hero from '@/components/Hero'
+import { siteConfig } from '@/site.config'
+import Portfolio from '@/components/Portfolio'
+import Profile from '@/components/Profile'
+import ZennSection from '@/components/ZennSection'
+import { fetchZennArticlesServer, ZennArticle } from '@/utils/zenn'
 
-export const getStaticProps: GetStaticProps = async () => {
-  const { results } = await fetchPages({ maxRange: 4 })
-  return {
-    props: {
-      pages: results ? results : [],
-    },
-    revalidate: 10,
-  }
+interface HomeProps {
+  zennArticles: ZennArticle[]
 }
 
-const TopPage: NextPage<IndexProps> = ({ pages }) => {
+const Home: NextPage<HomeProps> = ({ zennArticles }) => {
   return (
     <>
-      <Hero />
+      <Hero title={siteConfig.title} />
       <Profile />
       <Portfolio />
-      <HomeArticles pages={pages} />
+      <ZennSection articles={zennArticles} username={siteConfig.zennUsername} />
     </>
   )
 }
 
-export default TopPage
+export const getStaticProps: GetStaticProps = async () => {
+  const zennArticles = await fetchZennArticlesServer(siteConfig.zennUsername)
+  return {
+    props: {
+      zennArticles,
+    },
+    revalidate: 3600, // 1時間ごとに再生成
+  }
+}
+
+export default Home

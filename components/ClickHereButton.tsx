@@ -23,13 +23,13 @@ const ClickHereButton: React.FC<ClickHereButtonProps> = ({
         flex items-center justify-center gap-3
         backdrop-blur-lg transition-all
         duration-300 ease-in-out shadow-lg
-        ${isDark ? 'bg-black/30 text-white' : 'bg-white/30 text-zinc-900'}
-        hover:shadow-xl active:scale-95
+        bg-gray-800 text-white
+        hover:bg-gray-900 active:scale-95
       `}
     >
       {/* Hover Overlay */}
       <span
-        className='absolute inset-0 z-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-blue-500 to-purple-500 transition-opacity duration-300'
+        className='absolute inset-0 z-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-gray-700 to-gray-900 transition-opacity duration-300'
         aria-hidden='true'
       ></span>
 

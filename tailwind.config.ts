@@ -23,10 +23,10 @@ const config: Config = {
         },
       },
       fontSize: {
-        'base': '1rem',    // デフォルトのフォントサイズ
-        'lg': '1.125rem',   // 中サイズのフォントサイズ
-        'xl': '1.25rem',    // 大サイズのフォントサイズ
-        '2xl': '1.5rem',    // 超大サイズのフォントサイズ
+        base: '1rem', // デフォルトのフォントサイズ
+        lg: '1.125rem', // 中サイズのフォントサイズ
+        xl: '1.25rem', // 大サイズのフォントサイズ
+        '2xl': '1.5rem', // 超大サイズのフォントサイズ
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

@@ -7,16 +7,18 @@ import { siteConfig } from '@/site.config'
 import { portfolioList } from '@/utils/data'
 import useCustomAnimation from '@/hooks/useCustomAnimation'
 import SectionTitle from './SectionTitle'
-import { caveat } from '@/utils/font'
 import ClickHereButton from './ClickHereButton'
 
 const Portfolio = () => {
   const customAnimate = useCustomAnimation()
 
   return (
-    <div className='relative w-full min-h-screen bg-gradient-to-b from-transparent via-[#5f5f5f]/50 to-transparent px-10 md:px-40'>
+    <div
+      id='portfolio'
+      className='relative w-full min-h-screen bg-white px-2 md:px-40 py-10 md:py-32'
+    >
       <SectionTitle title={siteConfig.portfolio} />
-      <div className='container mx-auto px-4 py-12'>
+      <div className='w-full px-2 py-8 md:px-4 md:py-12'>
         <motion.div
           variants={customAnimate.scrollFadeInFromBottom}
           initial={customAnimate.scrollFadeInFromBottom.initial}
@@ -24,39 +26,56 @@ const Portfolio = () => {
           viewport={customAnimate.scrollFadeInFromBottom.viewport}
           className='max-w-6xl mx-auto'
         >
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {portfolioList.map((portfolio, index) => (
-              <div className='group relative mt-8'>
-                {/* 背景グラデーション */}
-                <div className='absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 z-0' />
-
-                {/* 画像コンテナ */}
-                <div className='relative w-full rounded-xl overflow-hidden z-10'>
+              <div
+                key={index}
+                className='group relative mt-8 bg-gray-50 p-6 rounded-lg shadow-md flex flex-col h-full items-center text-center'
+              >
+                <div className='relative w-full h-48 rounded-lg overflow-hidden mb-4'>
                   <Image
                     src={portfolio.image}
                     alt={portfolio.title}
-                    width={800}
-                    height={600}
-                    className='rounded-xl w-full h-auto object-contain'
+                    layout='fill'
+                    objectFit='cover'
+                    className='rounded-lg'
                   />
                 </div>
 
-                {/* タイトル */}
-                <h3
-                  className={`${caveat.className} text-3xl font-bold mb-4 text-center bg-clip-text text-[#eee] z-10`}
-                >
+                <h3 className='text-xl font-bold mb-2 text-gray-800'>
                   {portfolio.title}
                 </h3>
 
-                {/* ボタン */}
-                <div className='flex justify-center z-10'>
-                  <Link href={`/${portfolio.id}`} scroll={false}>
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                <p className='text-gray-600 text-sm mb-4 flex-grow'>
+                  {portfolio.description}
+                </p>
+
+                <div className='flex flex-wrap gap-2 mb-4 justify-center'>
+                  {portfolio.technologies.map((tech, i) => (
+                    <span
+                      key={i}
+                      className='text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full'
                     >
-                      <ClickHereButton text='詳細を見る' />
-                    </motion.div>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className='mt-auto'>
+                  <Link
+                    href={`/portfolio/${portfolio.id}`}
+                    scroll={false}
+                    legacyBehavior
+                  >
+                    <a>
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className='inline-block'
+                      >
+                        <ClickHereButton text='詳細を見る' />
+                      </motion.div>
+                    </a>
                   </Link>
                 </div>
               </div>

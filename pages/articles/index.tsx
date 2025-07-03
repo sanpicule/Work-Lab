@@ -25,14 +25,14 @@ const Home: NextPage<IndexProps> = ({ pages }) => {
   }, [])
   return (
     <>
-      <div className='w-full h-auto my-36 md:my-48 flex flex-col mx-auto justify-center py-4 px-8 md:px-20 max-w-6xl'>
+      <div className='w-full min-h-screen py-16 md:py-32 px-4 md:px-40 mx-auto max-w-6xl'>
         <SectionTitle title={siteConfig.articleList} />
-        <div className='w-full mt-6 ml-auto'>
+        <div className='w-full mt-6 flex justify-end'>
           <a
             href='https://zenn.dev/sanpi34'
             target='_blank'
             rel='noopener noreferrer'
-            className='flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white/30 backdrop-blur-md text-white shadow-xl hover:bg-white/20 transition-all duration-300 border border-white/10 hover:scale-[1.03]'
+            className='flex items-center gap-3 px-5 py-2.5 rounded-full bg-gray-100 text-gray-700 shadow-sm hover:bg-gray-200 transition-all duration-300'
           >
             <div className='w-6 h-6 relative'>
               <Image
@@ -48,7 +48,7 @@ const Home: NextPage<IndexProps> = ({ pages }) => {
           </a>
         </div>
 
-        <div className='grid grid-cols-1 gap-3 md:gap-12 lg:gap-10 mt-8 w-full'>
+        <div className='grid grid-cols-1 gap-6 mt-8 w-full'>
           {/* Card */}
           {pages.map((page, index) => (
             <Card key={index} page={page} />

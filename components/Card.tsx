@@ -33,17 +33,14 @@ const Card: FC<CardProps> = ({ page }) => {
           scroll={false}
           className='block'
         >
-          <div className='relative group rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-[#1e1e2f] to-[#2e2e3f] hover:shadow-2xl transition-all duration-300'>
-            {/* Hover Gradient Glow */}
-            <div className='absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-0 group-hover:opacity-40 blur-2xl transition-opacity duration-500 pointer-events-none z-0' />
-
+          <div className='relative group rounded-lg overflow-hidden shadow-md bg-white hover:shadow-lg transition-all duration-300'>
             {/* Card Content */}
             <div className='relative z-10 p-5 flex flex-col justify-between h-full'>
               <div>
-                <p className='text-xs text-start text-gray-400'>
+                <p className='text-xs text-start text-gray-500'>
                   {getDate(page.properties.published.date)}
                 </p>
-                <h2 className='text-base text-start md:text-lg font-semibold text-white mt-1'>
+                <h2 className='text-base text-start md:text-lg font-semibold text-gray-800 mt-1'>
                   {getText(page.properties.name.title)}
                 </h2>
               </div>
@@ -54,7 +51,7 @@ const Card: FC<CardProps> = ({ page }) => {
                   (tag, index) => (
                     <span
                       key={index}
-                      className='text-xs md:text-sm bg-gradient-to-r from-blue-400/60 to-purple-500/60 text-white px-3 py-1 rounded-full shadow-sm hover:shadow-md transition duration-200'
+                      className='text-xs md:text-sm bg-gray-100 text-gray-700 px-3 py-1 rounded-full shadow-sm'
                     >
                       #{tag}
                     </span>

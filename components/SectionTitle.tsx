@@ -8,7 +8,7 @@ type SectionTitleProps = {
 
 const SectionTitle: React.FC<SectionTitleProps> = ({
   title,
-  color = 'white',
+  color = 'gray-800',
 }) => {
   const customAnimate = useCustomAnimation()
   return (
@@ -17,11 +17,15 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
       initial={customAnimate.scrollFadeInFromTop.initial}
       whileInView={customAnimate.scrollFadeInFromTop.whileInView}
       viewport={customAnimate.scrollFadeInFromTop.viewport}
-      className='flex items-center gap-4 w-full'
+      className='flex items-center gap-4 w-full mb-8'
     >
-      <h2 className='tracking-widest text-3xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500'>
+      <div className='flex-1 h-px bg-gray-300'></div>
+      <h2
+        className={`tracking-wide text-2xl md:text-3xl font-bold text-center text-${color} px-4`}
+      >
         {title}
       </h2>
+      <div className='flex-1 h-px bg-gray-300'></div>
     </motion.div>
   )
 }

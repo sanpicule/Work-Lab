@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-  color: #fff;
+  background-color: #fafafa;
+  color: #333;
 }
 
 h1 {

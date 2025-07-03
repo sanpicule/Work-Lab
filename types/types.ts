@@ -109,3 +109,37 @@ export type Portfolio = {
   skills: Array<String>
   title: string
 }
+
+// GitHub関連の型定義
+export type GitHubRepo = {
+  id: number
+  name: string
+  description: string | null
+  html_url: string
+  stargazers_count: number
+  language: string | null
+  updated_at: string
+  topics: string[]
+  fork: boolean
+}
+
+export type GitHubRepoDetail = GitHubRepo & {
+  languages: { [key: string]: number }
+  topics: string[]
+  homepage: string | null
+  size: number
+  open_issues_count: number
+  forks_count: number
+  watchers_count: number
+  created_at: string
+  pushed_at: string
+}
+
+// Zenn関連の型定義
+export type ZennArticle = {
+  title: string
+  link: string
+  description: string
+  pubDate: string
+  thumbnail?: string
+}

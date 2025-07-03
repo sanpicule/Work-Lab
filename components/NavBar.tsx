@@ -34,6 +34,8 @@ const letterVariants = {
 
 const NavBar = () => {
   const [open, setOpen] = useState(false)
+  const [portfolioHover, setPortfolioHover] = useState(false)
+  const [portfolioClick, setPortfolioClick] = useState(false)
   const { scrollYProgress } = useScroll()
   const [isHovered, setIsHovered] = useState(false)
 
@@ -154,16 +156,55 @@ const NavBar = () => {
     },
   }
 
+  // サブメニューアニメーション
+  const submenuVariants = {
+    hidden: {
+      opacity: 0,
+      y: -10,
+      transition: {
+        duration: 0.2,
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const submenuItemVariants = {
+    hidden: {
+      opacity: 0,
+      x: -10,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  }
+
+  const portfolioProjects = [
+    { name: 'Kikara', path: '/portfolio/kikara' },
+    { name: 'TinyPost', path: '/portfolio/tinypost' },
+    { name: 'ShiftMe', path: '/portfolio/shiftme' },
+  ]
+
   return (
     <>
       {/* スクロールプログレスバー */}
       <motion.div
         style={{ scaleX: scrollYProgress }}
-        className='z-50 t-0 l-0 r-0 h-1 w-full origin-[0%] fixed bg-gradient-to-r from-purple-400 to-pink-600'
+        className='z-50 t-0 l-0 r-0 h-1 w-full origin-[0%] fixed bg-gray-800'
       />
 
       {/* ナビゲーションバー */}
-      <nav className='fixed z-30 w-full top-0 left-0 h-20 flex justify-between items-center px-8 bg-black/30 backdrop-blur-md'>
+      <nav className='fixed z-30 w-full top-0 left-0 h-20 flex justify-between items-center px-8 bg-white/95 backdrop-blur-md border-b border-gray-200'>
         {/* デスクトップロゴ */}
         <motion.div
           whileHover={{ scale: 1.05 }}
@@ -172,7 +213,7 @@ const NavBar = () => {
         >
           <Link
             href='/'
-            className='tracking-widest text-md md:text-2xl font-bold'
+            className='tracking-widest text-md md:text-2xl font-bold text-gray-800'
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
@@ -199,10 +240,13 @@ const NavBar = () => {
         </motion.div>
 
         {/* モバイルロゴ */}
-        <Link href='/' className='md:hidden tracking-widest text-md font-bold'>
+        <Link
+          href='/'
+          className='md:hidden tracking-widest text-md font-bold text-gray-800'
+        >
           <div className='flex'>
             <motion.p
-              className='px-2 py-1 border-2 rounded-sm'
+              className='px-2 py-1 border-2 border-gray-800 rounded-sm'
               whileTap={{ scale: 0.95 }}
             >
               H
@@ -210,12 +254,120 @@ const NavBar = () => {
           </div>
         </Link>
 
+        {/* デスクトップメニュー */}
+        <div className='hidden md:flex items-center gap-8'>
+          <motion.div
+            className='flex gap-4'
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
+          >
+            <motion.a
+              href='https://github.com/sanpicule?tab=repositories'
+              target='_blank'
+              rel='noopener noreferrer'
+              whileHover={{ scale: 1.1, rotate: 7 }}
+              whileTap={{ scale: 0.95 }}
+              className='text-gray-600 hover:text-gray-800 transition-colors duration-300'
+            >
+              <GitHubIcon fontSize='small' />
+            </motion.a>
+            <motion.a
+              href='https://www.instagram.com/sanp___ery/'
+              target='_blank'
+              rel='noopener noreferrer'
+              whileHover={{ scale: 1.1, rotate: -7 }}
+              whileTap={{ scale: 0.95 }}
+              className='text-gray-600 hover:text-gray-800 transition-colors duration-300'
+            >
+              <InstagramIcon fontSize='small' />
+            </motion.a>
+            <motion.a
+              href='https://x.com/sanpitech240?s=21'
+              target='_blank'
+              rel='noopener noreferrer'
+              whileHover={{ scale: 1.1, rotate: 7 }}
+              whileTap={{ scale: 0.95 }}
+              className='text-gray-600 hover:text-gray-800 transition-colors duration-300'
+            >
+              <XIcon fontSize='small' />
+            </motion.a>
+          </motion.div>
+
+          {/* デスクトップナビメニュー */}
+          <ul className='flex items-center gap-8'>
+            {navMenuList.map((navMenu) => (
+              <li key={navMenu.id} className='relative'>
+                {navMenu.menuName === 'Portfolio' ? (
+                  // Portfolioメニューの場合、サブメニューを表示
+                  <div
+                    className='relative'
+                    onMouseEnter={() => setPortfolioHover(true)}
+                    onMouseLeave={() => setPortfolioHover(false)}
+                  >
+                    <motion.div
+                      whileHover={{ y: -2 }}
+                      transition={{ type: 'spring', stiffness: 300 }}
+                      className='cursor-pointer'
+                    >
+                      <span className='text-gray-800 hover:text-gray-600 transition-colors duration-300 font-medium'>
+                        {navMenu.menuName}
+                      </span>
+                    </motion.div>
+
+                    {/* デスクトップサブメニュー */}
+                    <AnimatePresence>
+                      {portfolioHover && (
+                        <motion.div
+                          variants={submenuVariants}
+                          initial='hidden'
+                          animate='visible'
+                          exit='hidden'
+                          className='absolute left-0 top-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg py-2 min-w-[200px] z-50'
+                        >
+                          {portfolioProjects.map((project) => (
+                            <motion.div
+                              key={project.name}
+                              variants={submenuItemVariants}
+                              className='px-4 py-2 hover:bg-gray-50 transition-colors'
+                            >
+                              <Link
+                                href={project.path}
+                                className='text-gray-700 hover:text-gray-900 transition-colors block'
+                              >
+                                {project.name}
+                              </Link>
+                            </motion.div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  // 通常のメニューアイテム
+                  <motion.div
+                    whileHover={{ y: -2 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <Link
+                      href={navMenu.pathName}
+                      className='text-gray-800 hover:text-gray-600 transition-colors duration-300 font-medium'
+                    >
+                      {navMenu.menuName}
+                    </Link>
+                  </motion.div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* ハンバーガーメニュー - 表示条件修正 */}
         <AnimatePresence>
           {!open && (
             <motion.div
               key='hamburger'
-              className='z-50 relative flex items-center gap-8'
+              className='z-50 relative flex items-center gap-8 md:hidden'
               variants={hamburgerVariants}
               initial='hidden'
               animate='visible'
@@ -233,7 +385,7 @@ const NavBar = () => {
                   rel='noopener noreferrer'
                   whileHover={{ scale: 1.1, rotate: 7 }}
                   whileTap={{ scale: 0.95 }}
-                  className='text-gray-300 hover:text-white transition-transform duration-300'
+                  className='text-gray-600 hover:text-gray-800 transition-colors duration-300'
                 >
                   <GitHubIcon fontSize='small' />
                 </motion.a>
@@ -243,7 +395,7 @@ const NavBar = () => {
                   rel='noopener noreferrer'
                   whileHover={{ scale: 1.1, rotate: -7 }}
                   whileTap={{ scale: 0.95 }}
-                  className='text-gray-300 hover:text-white transition-transform duration-300'
+                  className='text-gray-600 hover:text-gray-800 transition-colors duration-300'
                 >
                   <InstagramIcon fontSize='small' />
                 </motion.a>
@@ -253,7 +405,7 @@ const NavBar = () => {
                   rel='noopener noreferrer'
                   whileHover={{ scale: 1.1, rotate: 7 }}
                   whileTap={{ scale: 0.95 }}
-                  className='text-gray-300 hover:text-white transition-transform duration-300'
+                  className='text-gray-600 hover:text-gray-800 transition-colors duration-300'
                 >
                   <XIcon fontSize='small' />
                 </motion.a>
@@ -280,11 +432,11 @@ const NavBar = () => {
                 animate='open'
                 exit='closed'
                 variants={menuVariants}
-                className='px-8 fixed top-0 text-white right-0 w-full h-lvh bg-black z-50 flex flex-col justify-center items-end'
+                className='px-8 fixed top-0 text-gray-800 right-0 w-full h-lvh bg-white z-50 flex flex-col justify-center items-end'
               >
                 {/* クローズボタン - 独立したアニメーションで表示 */}
                 <motion.div
-                  className='w-full flex justify-end mb-8 absolute top-2 right-2'
+                  className='absolute top-8 right-8 z-10'
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   // 閉じる時のアニメーションを早くする
@@ -310,20 +462,42 @@ const NavBar = () => {
                       custom={index}
                       className='overflow-hidden w-full text-right'
                     >
-                      <motion.div
-                        whileHover={{ x: -8 }}
-                        transition={{ type: 'spring', stiffness: 300 }}
-                      >
-                        <Link
-                          href={navMenu.pathName}
-                          onClick={() => setOpen(false)}
-                          className='transition-colors duration-300 flex items-center justify-end'
+                      {navMenu.menuName === 'Portfolio' ? (
+                        <motion.div
+                          whileHover={{ x: -8 }}
+                          transition={{ type: 'spring', stiffness: 300 }}
                         >
-                          <h4 className='text-3xl md:text-4xl font-semibold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent transition-colors duration-300'>
-                            {navMenu.menuName}
-                          </h4>
-                        </Link>
-                      </motion.div>
+                          <Link
+                            href='/#portfolio'
+                            onClick={() => setOpen(false)}
+                            className='transition-colors duration-300 flex items-center justify-end' legacyBehavior
+                          >
+                            <a>
+                              <h4 className='text-3xl md:text-4xl font-semibold text-gray-800 transition-colors duration-300'>
+                                {navMenu.menuName}
+                              </h4>
+                            </a>
+                          </Link>
+                        </motion.div>
+                      ) : (
+                        // 通常のメニューアイテム
+                        <motion.div
+                          whileHover={{ x: -8 }}
+                          transition={{ type: 'spring', stiffness: 300 }}
+                        >
+                          <Link
+                            href={navMenu.pathName}
+                            onClick={() => setOpen(false)}
+                            className='transition-colors duration-300 flex items-center justify-end' legacyBehavior
+                          >
+                            <a>
+                              <h4 className='text-3xl md:text-4xl font-semibold text-gray-800 transition-colors duration-300'>
+                                {navMenu.menuName}
+                              </h4>
+                            </a>
+                          </Link>
+                        </motion.div>
+                      )}
                     </motion.li>
                   ))}
                   <motion.div
@@ -343,7 +517,7 @@ const NavBar = () => {
                         rel='noopener noreferrer'
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.9 }}
-                        className='text-gray-300 hover:text-white transition-transform duration-100'
+                        className='text-gray-600 hover:text-gray-800 transition-colors duration-300'
                       >
                         <GitHubIcon fontSize='large' />
                       </motion.a>
@@ -353,7 +527,7 @@ const NavBar = () => {
                         rel='noopener noreferrer'
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.9 }}
-                        className='text-gray-300 hover:text-white transition-transform duration-100'
+                        className='text-gray-600 hover:text-gray-800 transition-colors duration-300'
                       >
                         <InstagramIcon fontSize='large' />
                       </motion.a>
@@ -363,7 +537,7 @@ const NavBar = () => {
                         rel='noopener noreferrer'
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.9 }}
-                        className='text-gray-300 hover:text-white transition-transform duration-100'
+                        className='text-gray-600 hover:text-gray-800 transition-colors duration-300'
                       >
                         <XIcon fontSize='large' />
                       </motion.a>

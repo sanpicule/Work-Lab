@@ -25,10 +25,10 @@ const ArticleMeta: React.FC<ArticleMetaProps> = ({ page }) => {
           <div className='flex flex-wrap gap-4'>
             {getMultiSelect(page.properties.tags.multi_select).map(
               (tag: string, index: number) => (
-                <Link key={index} href={`/tags/${tag}`} scroll={false}>
-                  <p className='border-b border-slate-500 text-[12px] md:text-[14px]'>
+                <Link key={index} href={`/tags/${tag}`} scroll={false} legacyBehavior>
+                  <a className='border-b border-slate-500 text-[12px] md:text-[14px]'>
                     {`#${tag}`}
-                  </p>
+                  </a>
                 </Link>
               )
             )}
